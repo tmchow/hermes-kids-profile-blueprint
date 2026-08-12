@@ -1,0 +1,27 @@
+# Reference fragment only. Verify the platform and key paths against the
+# installed Hermes version before use.
+
+# Required outcomes:
+# - explicit child sender allowlist
+# - verified parent-only administrative allowlist
+# - child absent from all administrative lists
+# - smallest supported user command set
+# - unauthorized direct messages ignored when appropriate
+# - child and parent behavior tested through the real platform
+#
+# This fragment covers direct-message scope. If the child will use a group,
+# channel, or thread, configure and test the platform's separate group-scope
+# allowlist, admin list, and user command list.
+
+gateway:
+  platforms:
+    {{PLATFORM_KEY}}:
+      extra:
+        allow_from:
+          - "{{CHILD_PLATFORM_ID}}"
+          - "{{PARENT_PLATFORM_ID}}"
+        allow_admin_from:
+          - "{{PARENT_PLATFORM_ID}}"
+        user_allowed_commands:
+          - help
+          - whoami

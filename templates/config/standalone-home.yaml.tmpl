@@ -1,0 +1,12 @@
+# Reference fragment for a standalone Hermes home.
+# This fragment does not create an operating-system sandbox.
+
+terminal:
+  home_mode: profile
+
+security:
+  inherit_global_auth: false
+
+# Start the process with a scrubbed environment. Add only the variables that
+# Hermes and the approved provider require. Verify credential sources in a
+# fresh process.

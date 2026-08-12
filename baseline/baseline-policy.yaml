@@ -1,0 +1,62 @@
+schema_version: 1
+purpose: restricted-child-facing-hermes-profile
+one_child_per_profile: true
+profile_name_default: kids-1
+
+required_boundary:
+  modify_default_profile: false
+  inherit_global_auth: false
+  dedicated_provider_credential: true
+  missing_credential_fails_closed: true
+
+capability_default:
+  tier: text-chat
+  search: false
+  image_input: false
+  image_generation: false
+  speech_input: false
+  speech_output: false
+
+hard_denies:
+  terminal: true
+  code_execution: true
+  file: true
+  browser: true
+  computer_use: true
+  web: true
+  vision: true
+  image_gen: true
+  video: true
+  video_gen: true
+  tts: true
+  messaging: true
+  email: true
+  calendar: true
+  contacts: true
+  homeassistant: true
+  plugins: true
+  mcp: true
+  cronjob: true
+  delegation: true
+  skills: true
+  memory: true
+  session_search: true
+  kanban: true
+  project: true
+  desktop_ui: true
+  lazy_installs: true
+
+persistence_default:
+  autonomous_memory: false
+  session_search: false
+  static_user_profile: optional
+  retention_days: parent_decision
+
+required_verification:
+  fresh_process: true
+  exact_resolved_tools: true
+  credential_source: true
+  missing_credential_test: true
+  real_model_request: true
+  interface_command_acl: true
+  behavioral_evals: true

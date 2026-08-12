@@ -1,0 +1,51 @@
+# Reference fragment only. Verify every key against the installed Hermes version.
+# Merge this intent into a new profile. Do not paste it into an adult profile.
+
+security:
+  inherit_global_auth: false
+  allow_private_urls: false
+  redact_secrets: true
+  protected_instruction_files: true
+  tirith_enabled: true
+  tirith_fail_open: false
+  allow_lazy_installs: false
+
+plugins:
+  enabled: []
+
+mcp_servers: {}
+
+agent:
+  max_turns: {{MAX_TURNS}}
+  disabled_toolsets:
+    - terminal
+    - code_execution
+    - file
+    - browser
+    - computer_use
+    - web
+    - vision
+    - image_gen
+    - video
+    - video_gen
+    - tts
+    - messaging
+    - cronjob
+    - delegation
+    - skills
+    - memory
+    - session_search
+    - kanban
+    - project
+    - desktop_ui
+    - homeassistant
+    - x_search
+
+memory:
+  memory_enabled: false
+  user_profile_enabled: {{STATIC_USER_PROFILE_ENABLED}}
+
+# Add explicit platform_toolsets for each enabled interface after you verify the
+# current toolset names and resolved tool list. Text chat should expose no model
+# tools unless the interface requires a specific low-risk tool. Remove an
+# optional web or media deny only after its separate verification passes.
