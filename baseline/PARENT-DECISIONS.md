@@ -10,29 +10,35 @@ Ask these questions one at a time. Explain the consequence of each answer. Every
 
 2. **How will the child access Hermes?**
    - Parent-controlled messaging gateway
-   - Local access in a separate operating-system account
-   - Local access under the parent account with direct supervision
+   - Parent-account session with direct supervision
+   - Unsupervised local CLI access is not supported
 
-3. **What boundary do you need?**
+3. **Which additional isolation controls do you need?**
    - Behavioral guardrails
-   - Hermes state and credential separation
+   - Standalone Hermes home for Hermes-owned state separation
    - A hard user boundary with a separate account, container, sandbox, or host
 
-4. **Which capability tier do you want?**
-   - Text chat
-   - Creative media
-   - Supervised web
+4. **Does the text-chat-only capability tier meet your needs?**
+   - Text chat is the only supported tier in this pre-release.
+   - Search, image, audio, video, document, and external-action capabilities are outside this blueprint's readiness contract.
+   - Stop the build if the parent requires an unsupported capability.
 
 5. **Which provider and model will the profile use?**
    - Confirm that the provider terms and moderation are acceptable.
    - Confirm a dedicated credential and spending limit.
 
 6. **How long should local conversations remain?**
-   - Record the retention period.
+   - Choose verified automatic expiry or manual deletion.
+   - Do not promise a deadline for manual retention.
    - Record how the parent can review and delete local data.
 
 7. **What is the approved parent administration route?**
    - Use a verified platform identity or local adult account.
+
+8. **How will unapproved media be blocked?**
+   - Identify the adapter, proxy, or platform boundary that rejects image,
+     voice, audio, video, and document input before Hermes processes it.
+   - Stop with `FAIL` when the selected interface cannot enforce this boundary.
 
 ## Optional personalization
 
@@ -51,7 +57,7 @@ Do not record details that identify a child, school, schedule, location, friend,
 Before the build starts, show the parent:
 
 - the chosen deployment mode;
-- the capability tier;
+- the text-chat-only capability boundary;
 - the data that will be stored;
 - the external providers that will receive data;
 - the spending controls;

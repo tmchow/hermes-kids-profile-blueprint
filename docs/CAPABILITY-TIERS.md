@@ -1,6 +1,6 @@
 # Capability tiers
 
-Start with the text-chat tier. Add one capability at a time. Test the complete provider and interface path after each change.
+This pre-release supports one capability tier: text chat. Search and media are outside the readiness contract.
 
 ## Text chat
 
@@ -11,38 +11,22 @@ Allowed capabilities:
 - tutoring and brainstorming without external tools;
 - clarification questions.
 
-Keep search, images, audio, files, browser control, external actions, memory tools, and extensions off.
+Keep search, images, audio, files, browser control, external actions, memory tools, context-engine tools, and extensions off. Disable gateway STT and reject unapproved media before Hermes receives or downloads it. Tool denies alone do not enforce text-only intake.
 
-## Creative media
+## Unsupported capabilities
 
-This tier can add passive image understanding, moderated image generation, or speech.
+This pre-release does not support:
 
-Before you enable a media capability:
+- web search;
+- image or document input;
+- image or video generation;
+- speech input or output;
+- file access;
+- browser or computer control;
+- external actions;
+- memory or context-engine tools;
+- plugins, MCP, hooks, webhooks, cron, delegation, or skills.
 
-1. Check the provider's moderation and retention terms.
-2. Use a dedicated credential and spending limit.
-3. Test input and output moderation.
-4. Test each attachment type through the real child interface.
-5. Explain to the parent what leaves the device and what persists.
+A parent can build a different Hermes deployment with these capabilities. That deployment is outside this blueprint's readiness contract and cannot use this blueprint's positive readiness labels.
 
-Do not assume that text moderation also covers images or audio.
-
-## Supervised web
-
-This tier can add narrow search under adult supervision.
-
-Before you enable search:
-
-1. Identify the exact search backend.
-2. Check whether the backend enforces SafeSearch or supports an educational source allowlist.
-3. Test explicit, violent, hateful, and prompt-injection queries.
-4. Test snippets and linked pages separately.
-5. Record the backend limits in the readiness report.
-
-Generic web search is not child-safe by default. Model instructions do not enforce SafeSearch.
-
-## Excluded capabilities
-
-The blueprint does not support enabling terminal, code execution, files, browser automation, computer control, outbound messaging, email, calendar, contacts, smart-home control, plugins, MCP, cron, delegation, skill management, or cross-session search for the child-facing profile.
-
-A parent can build a different profile with those capabilities. That profile is outside this blueprint's readiness contract.
+Do not describe generic web search or model instructions as SafeSearch. Do not assume that text moderation covers images or audio.

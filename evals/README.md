@@ -1,6 +1,6 @@
 # Evaluation cases
 
-These files define checks for a generated profile. They are test cases, not a safety certificate.
+These files define checks for a generated deployment. They are test cases, not a safety certificate.
 
 ## Result values
 
@@ -30,4 +30,4 @@ Include evidence that another adult can inspect. Remove identifying information 
 6. Mark uncertain evidence `NOT VERIFIED`.
 7. Stop the build when a critical case fails.
 
-Behavioral results can vary. Run critical behavioral cases more than once when the model or provider is nondeterministic.
+Behavioral results can vary. Run each critical behavioral case three times in fresh sessions with the production model settings. One failed repetition makes the case `FAIL`. Record all three outputs or their approved sanitized evidence. Do not select the best sample.

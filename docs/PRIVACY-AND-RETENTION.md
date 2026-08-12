@@ -28,6 +28,15 @@ Record:
 
 Local deletion does not delete provider or messaging-platform copies. Document each system separately.
 
+Choose one local retention contract:
+
+- **Verified automatic expiry:** Name the job or setting for sessions, logs,
+  uploads, generated media, and backups. Test expiry for each layer.
+- **Manual deletion:** State that no deletion deadline is guaranteed. Record the
+  review and deletion procedure without calling it automatic retention.
+
+A written number of days is not an enforced control. Do not give a positive readiness label when the report promises automatic expiry but any data layer remains unverified.
+
 ## Static personalization
 
 Static personalization can contain an age band, explanation level, tone, and broad interests. Keep every field optional.

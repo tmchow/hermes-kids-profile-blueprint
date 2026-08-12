@@ -1,6 +1,8 @@
 #!/bin/sh
 # Template only. Review paths and the Hermes executable before installation.
-# This launcher accepts no arguments. It is not an operating-system sandbox.
+# This launcher accepts no arguments. It is for direct adult supervision only.
+# It does not restrict interactive slash commands and is not an OS sandbox.
+# Never expose it as an independent child entrypoint.
 
 set -eu
 
@@ -20,4 +22,5 @@ exec env -i \
   HOME="$SYNTHETIC_HOME" \
   HERMES_HOME="$PROFILE_HOME" \
   PATH="{{MINIMAL_PATH}}" \
+  {{APPROVED_PROVIDER_ENV_ASSIGNMENTS}} \
   "$HERMES_BIN" chat --cli

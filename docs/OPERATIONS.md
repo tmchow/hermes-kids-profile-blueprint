@@ -6,6 +6,8 @@
 - Confirm that the child cannot reach an adult profile.
 - Confirm that the provider spending limit is active.
 - Confirm that the parent knows how to stop access.
+- Confirm that production environment and credential sources match the report.
+- Confirm that unapproved media is rejected before Hermes preprocessing.
 
 ## Stop access
 
@@ -15,7 +17,7 @@ Test the stop action before handoff.
 
 ## Review
 
-Set a review schedule that matches the child's use and the enabled capabilities. Review sooner after a model, provider, Hermes, SOUL, tool, gateway, or retention change.
+Set a review schedule that matches the child's use and the enabled capabilities. Review sooner after a model, provider, Hermes, SOUL, tool, process environment, gateway, media-intake, webhook, or retention change.
 
 Check current Hermes security advisories before handoff and after each Hermes update. A runtime authorization defect can make a correct configuration ineffective.
 
@@ -31,6 +33,8 @@ Transcript review detects some failures after they occur. It is not the main saf
 6. Run all critical structural and runtime checks.
 7. Run applicable behavioral evals.
 8. Restore child access only after the readiness result permits it.
+
+If retention is manual, perform the documented deletion review on schedule. If retention is automatic, test that every promised local data layer expires.
 
 ## Delete
 

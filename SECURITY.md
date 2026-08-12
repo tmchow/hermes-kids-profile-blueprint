@@ -4,7 +4,7 @@
 
 This repository contains documentation, templates, policy intent, and evaluation cases. It does not provide an operating-system sandbox or a guarantee of age-appropriate model output.
 
-A generated profile is only as strong as its local deployment, credentials, provider controls, interface authorization, and current Hermes configuration.
+A generated deployment is only as strong as its local controls, credentials, provider controls, interface authorization, and current Hermes configuration.
 
 ## Security boundary
 
@@ -20,7 +20,7 @@ Use a public issue for documentation errors that do not expose private or securi
 
 ## Review requirements
 
-A security-sensitive change should include:
+A security-sensitive change must include:
 
 - the requirement that changes;
 - the threat or failure mode;
@@ -29,4 +29,4 @@ A security-sensitive change should include:
 - the effect on existing local builds;
 - any required rebuild, restart, or reevaluation step.
 
-The repository's validator is not an independent security audit. A compromised repository can change both a template and its test. Parents must review releases and verify the generated profile in their own environment.
+The repository's validator is not an independent security audit. A compromised repository can change both a template and its test. Parents must review releases and verify the generated deployment in their own environment.

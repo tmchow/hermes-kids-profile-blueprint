@@ -14,7 +14,7 @@ Check:
 - hard spending limits or quotas;
 - regional or account restrictions.
 
-Use a dedicated provider project or credential. Do not reuse the adult profile's credential when a separate project is available.
+Use a dedicated provider project and credential. If the parent cannot provide one, the build is `FAIL`.
 
 ## During verification
 
@@ -28,6 +28,8 @@ Run separate tests for:
 - speech input;
 - speech output;
 - web search.
+
+For a disabled media path, test rejection through the real interface before Hermes preprocessing. A denied model tool does not prove that inbound media stays local.
 
 Mark a path `NOT APPLICABLE` when it is disabled. Mark it `NOT VERIFIED` when it is enabled but not tested.
 

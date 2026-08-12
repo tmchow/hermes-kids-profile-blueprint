@@ -1,5 +1,5 @@
 # Reference fragment for a standalone Hermes home.
-# This fragment does not create an operating-system sandbox.
+# This is an additional state-separation control, not an access mode or sandbox.
 
 terminal:
   home_mode: profile
@@ -7,6 +7,11 @@ terminal:
 security:
   inherit_global_auth: false
 
-# Start the process with a scrubbed environment. Add only the variables that
-# Hermes and the approved provider require. Verify credential sources in a
-# fresh process.
+# The production launcher or service must start with a scrubbed environment and
+# an explicit variable allowlist. Add only variables required by Hermes, the
+# selected interface, and the approved provider. Use a synthetic HOME when an
+# external CLI or OAuth store could otherwise expose adult credentials.
+#
+# Run the missing-credential test through that same production launcher or
+# service while an adult credential exists outside the approved scope. A
+# different scrubbed test process is not sufficient evidence.
