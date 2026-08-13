@@ -25,6 +25,7 @@ The agent will inspect the installed Hermes release, interview the parent, propo
 - guidance for optional workspace context, skills, and extensions;
 - a privacy-aware memory review process;
 - scenario-based evaluation and maintenance guides;
+- a Windows launcher template for running a standalone Hermes home on Windows;
 - one synthetic example.
 
 ## What it does not provide
@@ -34,6 +35,8 @@ This repository is not an installable Hermes profile. It does not contain a univ
 A Hermes profile separates Hermes state. It does not create an operating-system sandbox. A local Hermes process can have the same access as the operating-system account that runs it. `SOUL.md` guides model behavior, but it does not enforce tool, filesystem, credential, network, or account boundaries.
 
 The setup agent must inspect the current Hermes documentation and resolved runtime before it makes claims about isolation or access.
+
+The Windows launcher in [`templates/launchers/windows.cmd.tmpl`](templates/launchers/windows.cmd.tmpl) sets `HOME`, `HERMES_HOME`, and `PATH`, but it inherits the rest of the user environment. It is not credential separation. Use a separate standard (non-administrator) Windows account, and NTFS access control lists when a profile directory must stay private.
 
 ## Design principles
 
@@ -57,6 +60,7 @@ The setup agent must inspect the current Hermes documentation and resolved runti
 - [`MAINTENANCE.md`](MAINTENANCE.md): review triggers and update process
 - [`EXAMPLE.md`](EXAMPLE.md): synthetic design summary
 - [`STYLE.md`](STYLE.md): repository writing rules
+- [`templates/launchers/windows.cmd.tmpl`](templates/launchers/windows.cmd.tmpl): Windows launcher template for a standalone Hermes home
 
 ## Current Hermes references
 

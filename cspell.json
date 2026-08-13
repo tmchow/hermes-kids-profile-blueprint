@@ -21,7 +21,12 @@
     "PERS",
     "roleplay",
     "SafeSearch",
-    "toolsets"
+    "toolsets",
+    "cmd",
+    "NTFS",
+    "tmpl",
+    "Windows",
+    "windows"
   ],
   "ignorePaths": [
     ".git/**",

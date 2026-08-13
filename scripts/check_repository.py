@@ -29,8 +29,9 @@ EXPECTED_FILES = {
     "assets/readme-header.png",
     "cspell.json",
     "scripts/check_repository.py",
+    "templates/launchers/windows.cmd.tmpl",
 }
-TEXT_SUFFIXES = {".json", ".jsonc", ".md", ".seed", ".py", ".yml", ".yaml"}
+TEXT_SUFFIXES = {".json", ".jsonc", ".md", ".seed", ".py", ".tmpl", ".yml", ".yaml"}
 ALLOWED_BINARY = {"assets/readme-header.png"}
 LINK_RE = re.compile(r"!?\[[^\]]*\]\(([^)]+)\)")
 PLACEHOLDER_RE = re.compile(r"\[([A-Z][A-Z0-9 ,/_.-]{2,})\]")
@@ -112,9 +113,24 @@ def check_placeholders(errors: list[str]) -> None:
         text = path.read_text(encoding="utf-8")
         if WORK_MARKER_RE.search(text):
             errors.append(f"{path.relative_to(ROOT)}: unresolved work marker")
+        if "templates/" in path.relative_to(ROOT).as_posix():
+            continue  # launcher templates use doubled braces on purpose
         text_without_github_expressions = GITHUB_EXPRESSION_RE.sub("", text)
         if TEMPLATE_OPEN in text_without_github_expressions or TEMPLATE_CLOSE in text_without_github_expressions:
             errors.append(f"{path.relative_to(ROOT)}: unresolved template braces")
+
+
+def check_windows_launcher(errors: list[str]) -> None:
+    rel = "templates/launchers/windows.cmd.tmpl"
+    text = (ROOT / rel).read_text(encoding="utf-8")
+    for name in ("ABSOLUTE_HERMES_HOME", "ABSOLUTE_HERMES_BIN", "MINIMAL_PATH"):
+        placeholder = TEMPLATE_OPEN + name + TEMPLATE_CLOSE
+        if placeholder not in text:
+            errors.append(f"{rel}: missing placeholder {placeholder}")
+    if 'if not "%~1"==""' not in text:
+        errors.append(f"{rel}: launcher must reject arguments")
+    if "%*" in text:
+        errors.append(f"{rel}: launcher must not forward arguments")
 
 
 def check_secrets(errors: list[str]) -> None:
@@ -175,6 +191,7 @@ def main() -> int:
     check_manifest(errors)
     check_links(errors)
     check_placeholders(errors)
+    check_windows_launcher(errors)
     check_secrets(errors)
     check_png(errors)
     check_binary_allowlist(errors)
