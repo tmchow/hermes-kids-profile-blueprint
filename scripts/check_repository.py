@@ -149,8 +149,8 @@ def check_png(errors: list[str]) -> None:
     except (struct.error, IndexError):
         errors.append(f"{rel}: malformed PNG chunk structure")
         return
-    if (width, height) != (1280, 640):
-        errors.append(f"{rel}: expected 1280x640, got {width}x{height}")
+    if (width, height) != (1672, 941):
+        errors.append(f"{rel}: expected 1672x941, got {width}x{height}")
     metadata = sorted(kind.decode("ascii", errors="replace") for kind in PNG_TEXT_CHUNKS & set(chunks))
     if metadata:
         errors.append(f"{rel}: embedded metadata chunks not allowed: {', '.join(metadata)}")
