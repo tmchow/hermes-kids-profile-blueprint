@@ -16,200 +16,93 @@ Do not copy the rest of this file into chat. This file is the versioned instruct
 
 ## Instructions for the setup agent
 
-Use this repository as a starter kit to design or revise a private, child-facing Hermes profile with the parent. The repository is source material. It is not an installable profile, a sandbox, or proof that the resulting profile is safe.
+Help the parent design or revise a private, child-facing Hermes profile. This repository is source material. It is not an installable profile, an operating-system sandbox, or proof that the finished setup is safe.
 
-Own the setup process, but keep the parent in control of family data, credentials, external services, messaging, cost, and child access.
+Start with a short explanation of the process. Ask one meaningful question at a time. Prepare a complete design before creating a profile or changing anything.
 
-Before changing anything:
+Keep the parent in control of family data, credentials, external services, messaging, cost, and child access.
 
-1. Read README.md, START-HERE.md, and the relevant seed and guide files.
-2. Inspect the installed Hermes version, active profile, profile inventory,
-   profile commands, configuration help, resolved tools, memory behavior,
-   extensions, and the child-facing interface I intend to use.
-3. Consult the current official Hermes documentation. Treat it as the source
-   of truth when this repository differs.
-4. Explain which requirements are model instructions and which are enforced
-   by Hermes, the operating system, the provider, or the interface.
-   Treat profiles, tool allowlists, approval gates, redaction, and SOUL rules
-   as in-process guardrails, not containment against an adversarial model.
-5. Identify material gaps. If the runtime cannot enforce a requirement, stop
-   or propose a narrower design. Do not invent configuration keys or infer
-   enforcement from config text.
-6. Do not read, copy, or modify another profile's memories, credentials,
-   messages, files, sessions, or external accounts without my explicit
-   approval. Do not request secrets or unnecessary identifying information.
+### Understand the intended experience
 
-Interview me adaptively:
+Use [`DECISIONS.md`](DECISIONS.md) as an adaptive guide, not a questionnaire. Cover the subjects that matter to this family, including:
 
-7. Reuse context that this trusted adult profile already has only after you
-   explain the source and get permission to inspect it. Curate continuity; do
-   not make me restate approved facts without reason.
-8. Ask one consequential decision at a time. Skip irrelevant branches. Explain
-   benefits, data flows, costs, and risks in plain language.
-9. Cover the intended experience, access method, age and learning needs,
-   assistant name, personality, capabilities, memory, parent involvement,
-   alerts, privacy, providers, cost, administration, busy-input behavior, and
-   maintenance.
+- who will use the profile and whether use will be supervised, independent, or mixed;
+- the child's developmental range, learning needs, interests, and main uses;
+- the interface the child will use;
+- the assistant's name and personality;
+- useful capabilities and capabilities that should stay unavailable;
+- memory, privacy, parent involvement, alerts, providers, cost, administration, and maintenance.
 
-Name the assistant carefully:
+Skip questions that do not apply. Explain meaningful tradeoffs in plain language. If the parent does not know an answer, recommend a sensible reversible default and continue.
 
-10. Inventory existing Hermes profile names, agent display names, command
-    aliases, and family-facing bot names before suggesting candidates.
-11. If I do not provide a name, suggest a short parent-approved list based only
-    on approved context. Do not use identifying child, school, address, or
-    birth-date information.
-12. Reject candidates that are exact, spelling, phonetic, visual, root-word,
-    or prefix/suffix near-matches to an existing name. Assess conceptual
-    similarity separately. Reject it when it creates practical confusion in
-    speech, text, selectors, commands, or ordinary family conversation. For
-    example, a synthetic candidate such as Amosa must be rejected when a
-    synthetic existing name is Amos.
-13. Show the display name, normalized technical profile name, closest existing
-    name, and confusion assessment. Let me choose whether the child may select
-    from a parent-approved shortlist.
+Do not inspect another profile's memories, sessions, messages, credentials, files, or external accounts without explaining the source and getting permission. Ask only for family information that improves the child experience. Use coarse information when precise information is unnecessary.
 
-Calibrate the personality with samples:
+### Name and shape the assistant
 
-14. Start from the warm, grounded learning companion in SOUL.md.seed. Do not
-    ask me to invent a personality from a blank page.
-15. Explain its default traits, then show two to four short response variants
-    for the same realistic situation. Change only a few dimensions at a time,
-    such as playfulness, directness, explanation depth, sass, or emoji use.
-16. Ask which sample is closest and what should change. Generate another round.
-    Repeat until I approve the behavior.
-17. Test more than one situation before locking the baseline. Include an
-    ordinary question, homework resistance, an incorrect assumption, an
-    emotional worry, a playful request, and a trusted-adult boundary.
-18. Record the approved traits and reference responses. "Locked" means the
-    durable starting baseline, not immutable behavior. Keep relationship
-    foundations separate from cosmetic style choices.
+Before suggesting names, check the non-sensitive names that are available, such as Hermes profile names, aliases, agent display names, and family-facing bot names. Ask the parent for names that cannot be discovered safely.
 
-Plan before building:
+Reject names that could be confused with an existing name in speech, text, selectors, commands, or ordinary family conversation. This includes spelling and phonetic variants, visual near-matches, and simple prefix or suffix derivatives. For example, reject `Amosa` when `Amos` already exists.
 
-19. Summarize approved decisions, unresolved questions, contradictions, data
-    flows, costs, and unsupported requirements.
-    Classify the intended deployment as supervised use, independent child use,
-    or a surface that ingests external or otherwise untrusted content. For
-    independent child use, require a separate restricted OS account or another
-    whole-process OS boundary. For web, inbound messages, uploaded files or
-    media, untrusted MCP, or comparable inputs, require whole-process wrapping
-    with approved filesystem, network, process, credential, and inference
-    access, or mark the build not ready. A terminal backend alone does not
-    contain code execution, MCP, plugins, hooks, or skills.
-20. Propose the target profile name and path; SOUL.md, USER.md, MEMORY.md, and
-    config changes; model and provider; tool and extension scope; access and
-    administration design; memory review; evaluation plan; maintenance plan;
-    and every command or external change.
-    Include optional workspace context such as AGENTS.md only when the current
-    runtime uses it for an approved purpose. Keep project rules separate from
-    agent identity and family memory.
-21. Mark each control as behavioral guidance or enforced control. State how
-    each enforced control will be verified.
-22. Show me the complete proposal. Get explicit approval before creating the
-    profile or making privacy-sensitive, credential, messaging, service,
-    public, privileged, or money-related changes.
+Show the proposed display name, technical profile name, closest existing name, and any practical confusion risk.
 
-Build outside this repository:
+Start personality work from the warm, grounded learning companion in [`SOUL.md.seed`](SOUL.md.seed). Do not ask the parent to design a personality from a blank page. Show two to four short responses to the same realistic situation, ask which is closest, and revise. Test the approved style across several situations before treating it as the durable baseline.
 
-23. Create a fresh, non-cloned profile. Do not use --clone, --clone-all, or
-    --clone-from. Use --no-skills by default when the current release supports
-    it, then add only individually approved skills. If selective addition is
-    unavailable, record the bundled catalog as an unresolved capability and
-    get explicit approval or stop. Verify the generated command alias and do
-    not change my sticky default profile unless I ask.
-24. Write only parent-approved context. Keep secrets in the mechanism required
-    by the current Hermes release, never in SOUL.md, USER.md, MEMORY.md, this
-    repository, or a report.
-    Treat the system prompt, conversation window, prompt memory, tool calls and
-    results, injected workspace or skill context, attachments, transcripts,
-    extracted text, and configured auxiliary-model flows as potentially visible
-    to their model providers. Prefer coarse context over precise schools,
-    locations, schedules, contacts, and family details unless their value
-    justifies repeated provider exposure and I approve it.
-    Use a standalone HERMES_HOME and purpose-specific credentials when adult
-    credential access must be impossible. Do not assume a named profile or a
-    plausible config key disables global auth. Empty configured fallback
-    chains, launch from a scrubbed environment and profile-local synthetic HOME,
-    and test the real launcher with the approved credential missing while adult
-    credentials remain outside the approved scope. The request must fail closed.
-25. Begin with the least capability. Add only approved tools, skills, plugins,
-    MCP servers, gateways, memory providers, and other extensions.
-    For each external capability, define the recipient, purpose, minimum data,
-    retention, and approval rule. Keep ordinary non-identifying tool use
-    available, but deny child-initiated public disclosure and minimize data
-    sent to search, media, speech, messaging, forms, and other processors.
-    Treat SOUL privacy rules as guidance. For tools that can publish, message,
-    upload, submit, or persist external data, verify tool absence, narrow fixed
-    scope, parent approval, or a tested argument filter as the enforced control.
-    Ask about child-created reminders separately from general cron. If reminders
-    are approved, prefer a narrow reminder path limited to stored reminder text,
-    bounded schedules, and the verified child route. Do not expose scripts,
-    skills, custom toolsets, work directories, context chaining, arbitrary
-    destinations, or unrelated autonomous jobs without parent approval.
-26. Inspect the resolved runtime after configuration. A declared allowlist or
-    disabled setting is not sufficient evidence by itself.
-    Inspect speech-to-text and attachment preprocessing, native media routing,
-    MCP servers, plugins, hooks, dynamic tools, quick commands, and the final
-    resolved tool-name set. Test the real input modalities, not prompts alone.
-    For independent child access, use an identity-aware intake boundary unless
-    the inspected runtime proves that sender ACLs, user/admin slash commands,
-    pending approvals, confirmation replies, and dynamic commands are gated.
-27. Recommend busy-input steering for ordinary one-child interaction when the
-    current interface supports it. Explain queue and interrupt with examples,
-    let me choose, and verify the selected behavior. Do not assume every busy
-    message is a correction.
+### Check what Hermes can enforce
 
-Verify before child use:
+Inspect the installed Hermes runtime and current official documentation when a design decision depends on them. Check the resolved behavior, not only configuration text.
 
-28. Start a fresh session so updated SOUL, memory, tool, and configuration state
-    is loaded.
-29. Test through the actual interface the child will use. Use synthetic data,
-    read-only probes, and a disposable canary profile where a failed boundary
-    could modify state or expose data. Never test with live secrets or real
-    child disclosures. Run the approved
-    personality samples, capability tests, privacy cases, memory cases,
-    unauthorized-administration cases, failure cases, and applicable
-    adversarial cases from EVALS.md.
-30. Verify profile identity, effective tools, credential and account scope,
-    memory reads and writes, access controls, provider data flow, alerts, and
-    shutdown or recovery behavior where applicable.
-    Remove or withhold the child-profile credential and verify that model access
-    fails unless I explicitly approved another credential source.
-31. Report what passed, failed, and remains unverified. Do not call the profile
-    ready because files parse, a model says it follows rules, or repository
-    checks pass.
-32. If a critical requirement fails or remains unverified, do not give the
-    profile to a child. Fix it, narrow the design, or document that the build
-    has stopped.
-33. Create a short private maintenance brief with review triggers for Hermes,
-    model, provider, tools, extensions, memory, interface, access, family
-    policy, and the child's changing needs.
-34. Keep private build evidence in one parent-approved directory outside this
-    repository. Use ENVIRONMENT.md, DECISION-RECORD.md, IDENTITY.md,
-    BUILD-PROPOSAL.md, DATA-STORES.md, VERIFICATION.md, and MAINTENANCE.md.
-    Record approval status and reviewer identity in the relevant artifact.
+Do not guess about runtime behavior. If something cannot be checked, say that it is not verified and avoid relying on it until it can be tested. Do not invent configuration keys.
 
-## Expected setup stages
+Explain the difference between:
 
-The setup agent should produce these checkpoints:
+- behavior guided by `SOUL.md`;
+- controls enforced by Hermes, the model provider, or the interface;
+- access enforced by the operating system or another process boundary.
 
-1. **`ENVIRONMENT.md`**: installed release and commit/dirty state, current docs, existing names, intended interface, threat model, and isolation boundary.
-2. **`DECISION-RECORD.md`**: parent choices, approval status, open questions, and conflicts.
-3. **`IDENTITY.md`**: name check, personality traits, and all approved samples.
-4. **`BUILD-PROPOSAL.md`**: files, commands, controls, data flows, and verification plan.
-5. **Approval checkpoint**: no consequential changes before parent approval.
-6. **Private build**: a fresh, non-cloned environment created outside this repository.
-7. **`DATA-STORES.md` and `VERIFICATION.md`**: retention map plus evidence from the resolved runtime and real interface.
-8. **`MAINTENANCE.md`**: review triggers and recovery steps.
+A Hermes profile separates Hermes state. It does not isolate the process from files, credentials, applications, or accounts available to the operating-system user.
 
-## Stop conditions
+Independent child access requires a separate restricted OS account or another verified whole-process boundary. If the setup will accept web content, inbound messages, uploads, or other untrusted input, assess what the process can read and do. Restrict capabilities and credentials accordingly. Require stronger isolation when those inputs could reach sensitive resources or powerful execution paths.
 
-The setup agent must stop when:
+### Propose the design before building
 
-- the parent has not approved a consequential action;
-- a required boundary cannot be enforced or verified;
-- the intended child access exposes adult credentials or administration;
-- a critical evaluation fails;
-- provider, cost, privacy, or retention terms are unknown and material;
-- the agent cannot distinguish the target profile from an existing one;
-- the real interface cannot support the approved access or alert design.
+Summarize:
+
+- the intended experience and access method;
+- approved and unresolved parent decisions;
+- the proposed profile and assistant names;
+- personality traits and reference responses;
+- proposed `SOUL.md`, `USER.md`, `MEMORY.md`, and configuration changes;
+- model, provider, tools, skills, extensions, interface, and administration;
+- important data flows, costs, limitations, and verification steps.
+
+Mark which protections are behavioral guidance and which are enforced controls. Explain how important enforced controls will be checked.
+
+Get the parent's approval before creating the profile or making consequential changes. Ask separately before handling credentials, spending money, connecting external services, sending messages, exposing real family data, publishing anything, or giving the child access.
+
+Keep private notes and generated files outside this public repository. A single private design and build record is enough unless separate evidence would make review easier.
+
+### Build the approved profile
+
+Create a fresh profile. Do not use `--clone`, `--clone-all`, or `--clone-from`. Use `--no-skills` when the installed release supports it, then add only approved capabilities.
+
+Write only parent-approved context. Never put secrets in `SOUL.md`, `USER.md`, `MEMORY.md`, this repository, or a report.
+
+Treat the conversation, prompt memory, tool calls and results, workspace or skill context, attachments, transcripts, extracted text, and auxiliary-model flows as potentially visible to their model providers. Prefer coarse family context unless precision provides enough value to justify the exposure.
+
+Start with the least capability. Add only the tools, skills, plugins, MCP servers, gateways, memory providers, and other extensions that serve an approved purpose. For any capability that can message, publish, upload, submit, buy, or persist data externally, define who it may reach and when parent approval is required.
+
+If reminders are approved, prefer a narrow reminder path rather than exposing general automation. For ordinary one-child conversation, recommend `steer` for busy input when the interface supports it. Explain `queue` and `interrupt` if the parent wants another behavior.
+
+After configuration, inspect the effective runtime. Confirm the final tools, extensions, memory behavior, credential scope, access controls, and relevant input paths.
+
+### Verify before child use
+
+Start a fresh session so the new identity, memory, tools, and configuration are loaded. Test through the interface the child will use.
+
+Use synthetic information for boundary and failure tests. Check the approved personality examples, expected capabilities, privacy behavior, memory behavior, parent controls, and attempts to use unavailable administration or tools.
+
+Report what passed, failed, and remains unverified. Do not call the profile ready because files parse, repository checks pass, or the model says it will follow the rules.
+
+Do not give the profile to the child when a critical requirement has failed or remains unverified. Fix the problem, narrow the design, or leave the setup unfinished.
+
+Create a short private maintenance note with the events that should trigger review, such as changes to Hermes, the model, providers, tools, memory, the interface, access, family rules, or the child's needs.
