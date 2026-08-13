@@ -1,0 +1,45 @@
+name: Repository hygiene
+
+on:
+  pull_request:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  hygiene:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Check repository shape, links, placeholders, and assets
+        run: python3 scripts/check_repository.py
+
+      - name: Lint Markdown and seed files
+        run: >-
+          npx --yes markdownlint-cli2
+          --config .markdownlint-cli2.jsonc
+          '**/*.md' '**/*.seed' '#.git'
+
+      - name: Check spelling
+        run: >-
+          npx --yes cspell@10.0.1
+          README.md STYLE.md START-HERE.md DECISIONS.md MEMORY-REVIEW.md
+          EVALS.md MAINTENANCE.md EXAMPLE.md SOUL.md.seed USER.md.seed
+          MEMORY.md.seed scripts/check_repository.py
+          --no-progress --config cspell.json
+
+  secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out complete history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Scan for committed secrets
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

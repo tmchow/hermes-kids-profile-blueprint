@@ -1,108 +1,71 @@
 # Hermes Kids Profile Blueprint
 
-> **Pre-release:** This repository is under security review. Do not treat the current branch as ready for child use.
+![Hermes Kids Profile Blueprint](assets/readme-header.png)
 
-A reference kit for parents who want to assess and build a restricted, child-facing [Hermes Agent](https://hermes-agent.nousresearch.com/docs) deployment.
+A parent-operated starter kit for designing a private, child-facing [Hermes Agent](https://hermes-agent.nousresearch.com/docs) profile.
 
-This repository is a blueprint. It is not an installable Hermes profile, a content filter, an operating-system sandbox, or a safety certificate. A trusted adult must build a private deployment, verify the effective runtime, and keep control of the child interface.
+Give this repository to a trusted adult Hermes agent. The agent will inspect the installed Hermes release, interview the parent, propose a private profile, and test the result in the interface the child will use.
 
-This repository does not ship the required pre-Hermes command, scope, and media boundary. The templates alone cannot produce an independent-access deployment with a positive readiness label.
+Start with [`START-HERE.md`](START-HERE.md).
 
-## Read this first
+## What this repository provides
 
-A Hermes profile separates Hermes configuration, sessions, and memory. It does not limit the operating-system permissions of the user who runs it. A child who controls a normal local Hermes CLI can use administrative slash commands or start another Hermes entrypoint. This blueprint does not support unsupervised local CLI access.
+- a copyable bootstrap prompt;
+- a child-neutral `SOUL.md` starting point;
+- seed formats for `USER.md` and `MEMORY.md`;
+- an adaptive parent decision guide;
+- guidance for optional workspace context, skills, and extensions;
+- a privacy-aware memory review process;
+- scenario-based evaluation and maintenance guides;
+- one synthetic example.
 
-Supported access modes are:
+## What it does not provide
 
-1. **Parent-controlled messaging gateway:** For independent child access. The parent must control the process, sender allowlists, command intake, credentials, and media intake. This pre-release supports text chat only. A tested identity-aware pre-Hermes boundary must admit child plain text plus `/help` and `/whoami`, reject other child slash commands, preserve the verified parent admin route, reject non-DM scopes, and reject media before Hermes receives it. Current Telegram needs this separate boundary because its main sender allowlist also covers groups and forums.
-2. **Parent-account supervised session:** For direct adult supervision only. It cannot receive `PASS`; use `PASS WITH ACKNOWLEDGED LIMITATIONS` only when every applicable critical check passes.
+This repository is not an installable Hermes profile. It does not contain a universal `config.yaml`, credentials, child data, or a security certificate.
 
-A separate operating-system account, container, sandbox, or host can protect parent resources. It does not by itself stop a child who controls that environment from changing a local Hermes configuration. A standalone Hermes home is an additional state-separation control, not an access mode.
+A Hermes profile separates Hermes state. It does not create an operating-system sandbox. A local Hermes process can have the same access as the operating-system account that runs it. `SOUL.md` guides model behavior, but it does not enforce tool, filesystem, credential, network, or account boundaries.
 
-Read [Deployment modes](docs/DEPLOYMENT-MODES.md) before you build.
+The setup agent must inspect the current Hermes documentation and resolved runtime before it makes claims about isolation or access.
 
-## What is in this repository
+## Design principles
 
-- A mandatory safety baseline
-- A parent decision guide
-- An expert build contract for a trusted Hermes agent
-- Sanitized SOUL, static personalization, config, and launcher templates
-- Structural, runtime, privacy, and behavioral evaluation cases
-- Readiness rules that distinguish verified controls from assumptions
-- Operating, update, retention, and deletion guidance
+- **Reuse knowledge, not trust boundaries.** A parent agent may know useful family context. Transfer only information that the parent reviews and approves for the child profile.
+- **Start fresh and non-cloned.** Do not use `--clone`, `--clone-all`, or `--clone-from`. Use `--no-skills` when supported, then add only individually approved skills. A normal fresh profile may still seed bundled skills.
+- **Start with the least capability.** Add only what the parent approves. Test the resolved tools and the real child-facing interface.
+- **Control data by destination.** Model processing is part of ordinary chat. Search, media, speech, messaging, forms, and public posting are separate data flows. Minimize each one, and block public or unrelated disclosure by default.
+- **Tune behavior with examples.** Begin with the warm, grounded default in `SOUL.md.seed`. Show response samples, revise them with the parent, and test the final profile against the approved samples.
+- **Keep evidence honest.** Report what passed, failed, and remains unverified. Repository lint or a model's promise is not proof of runtime enforcement.
+- **Match isolation to access.** Profiles and in-process controls are not containment. Independent child access or untrusted input requires an approved OS-level boundary, or the build remains not ready.
 
-The repository contains no active `SOUL.md`, `config.yaml`, credentials, child data, or profile distribution manifest. The build agent creates the private deployment outside this repository.
+## File map
 
-## Who should use it
+- [`START-HERE.md`](START-HERE.md): bootstrap prompt and build sequence
+- [`SOUL.md.seed`](SOUL.md.seed): default relationship and behavior language
+- [`USER.md.seed`](USER.md.seed): child profile context format
+- [`MEMORY.md.seed`](MEMORY.md.seed): agent operational-memory format
+- [`DECISIONS.md`](DECISIONS.md): adaptive interview domains and tradeoffs
+- [`MEMORY-REVIEW.md`](MEMORY-REVIEW.md): parent-approved context transfer
+- [`EVALS.md`](EVALS.md): real-interface evaluation scenarios
+- [`MAINTENANCE.md`](MAINTENANCE.md): review triggers and update process
+- [`EXAMPLE.md`](EXAMPLE.md): synthetic design summary
+- [`STYLE.md`](STYLE.md): repository writing rules
 
-This pre-release is for a parent or guardian who:
+## Current Hermes references
 
-- already administers Hermes Agent;
-- can inspect configuration and runtime behavior;
-- can create separate provider credentials and spending limits;
-- can operate a parent-controlled child interface;
-- will test the complete production path before a child uses it.
+The setup agent should open the current documentation rather than rely on a frozen copy:
 
-This is not a consumer parental-control product. `BUILD.md` is an expert implementation contract, not a turnkey manual installer.
+- [Profiles](https://hermes-agent.nousresearch.com/docs/user-guide/profiles)
+- [Configuration](https://hermes-agent.nousresearch.com/docs/user-guide/configuration)
+- [Memory](https://hermes-agent.nousresearch.com/docs/user-guide/features/memory)
+- [Profile commands](https://hermes-agent.nousresearch.com/docs/reference/profile-commands)
+- [Tools](https://hermes-agent.nousresearch.com/docs/reference/tools-reference)
+- [Slash commands](https://hermes-agent.nousresearch.com/docs/reference/slash-commands)
+- [Security](https://hermes-agent.nousresearch.com/docs/user-guide/security)
 
-## Agent-assisted build
+## Private data
 
-Review a specific commit before you give it to an agent. Do not use an unreviewed branch for a child deployment.
-
-Open a trusted adult Hermes session in this repository. Then paste this prompt:
-
-```text
-Read BUILD.md in this repository. Use it as the build contract for a new
-restricted child-facing Hermes deployment.
-
-Before you change anything:
-- inspect my Hermes version and the current official Hermes documentation;
-- explain the supported access modes and their limits;
-- ask me the required parent questions one at a time;
-- do not ask for secrets or unnecessary identifying information about a child.
-
-Build the deployment outside this repository. Do not modify my default or
-adult profiles. Do not copy credentials, memory, sessions, or personal files
-from another profile. Use the baseline requirements, templates, and eval cases
-in this repository. Do not say the deployment is ready until every applicable
-critical check passes. Report failed and unverified checks separately.
-```
-
-The agent must show the plan and target path before it writes files. The parent must approve credential setup, gateway changes, service installation, or any action that affects another user or external system.
-
-## Validate this blueprint
-
-The repository validator checks the blueprint itself. It does not prove that a generated deployment is safe.
-
-```bash
-python3 -m pip install -r requirements-dev.txt
-python3 scripts/validate_blueprint.py
-python3 -m unittest discover -s tests -v
-```
-
-Use the eval cases in [`evals/`](evals/) to test the generated deployment through its real child-facing interface.
-
-## Safety model
-
-The mandatory requirements are in [baseline/SAFETY-REQUIREMENTS.md](baseline/SAFETY-REQUIREMENTS.md). The main rules are:
-
-- Use one private deployment for one child.
-- Run the production process with an explicit environment allowlist.
-- Do not inherit adult credentials.
-- Expose only an exact verified tool allowlist.
-- Keep plugins, MCP, cron, webhooks, delegation, skills, autonomous memory, and cross-session search absent.
-- Reject unapproved image, audio, video, and document input before Hermes processes it.
-- Treat SOUL instructions and behavioral evals as guardrails, not enforcement.
-- Use a fresh production-equivalent process and rerun the audit after any relevant change.
-
-## Project status
-
-The repository remains pre-release. No tag is ready for adoption. No included reference build can pass the independent-access readiness contract because the required pre-Hermes intake boundary is not included. The current macOS and Linux material is reference work while runtime-aware security checks are added.
-
-## Contributing
-
-Read [CONTRIBUTING.md](CONTRIBUTING.md) and [STYLE.md](STYLE.md). Security-sensitive changes need evidence and review.
+Do not commit generated profiles, child or family data, credentials, session exports, evaluation transcripts, or build reports to this repository. Build the private profile outside the repository.
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+MIT. See [`LICENSE`](LICENSE).

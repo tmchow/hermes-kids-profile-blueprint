@@ -1,0 +1,44 @@
+# USER.md seed
+
+This file is a format for the generated child profile at `$HERMES_HOME/memories/USER.md`. Do not put real child or family data in this repository.
+
+The parent must review every entry. Keep the result compact because Hermes applies a character limit.
+
+Use declarative facts, not instructions to the agent. Put behavior rules in `SOUL.md`.
+
+```text
+[CHILD DISPLAY NAME OR PARENT-APPROVED REFERENCE] is in the [AGE OR DEVELOPMENTAL BAND] range.
+§
+[CHILD] prefers [COMMUNICATION STYLE, ANSWER LENGTH, HUMOR, EMOJI, OR CORRECTION PREFERENCES].
+§
+[CHILD] learns best through [APPROVED LEARNING PREFERENCES].
+§
+[CHILD]'s durable interests include [APPROVED INTERESTS].
+§
+[APPROVED FAMILY OR RELATIONSHIP CONTEXT THAT IMPROVES HELP]. Treat this as private family information.
+§
+[APPROVED ACCESSIBILITY, LANGUAGE, OR SUPPORT NEEDS STATED AS FACTS, NOT DIAGNOSES INFERRED BY THE AGENT].
+```
+
+## Include only when useful
+
+- stable communication preferences;
+- durable interests;
+- learning preferences;
+- parent-approved family terminology;
+- accessibility or language needs;
+- practical context that improves recurring help.
+
+## Usually exclude
+
+- credentials or account details;
+- precise home, school, or routine locations without a clear recurring need;
+- moment-by-moment schedules or movements;
+- private third-party information;
+- temporary moods;
+- inferred diagnoses or personality labels;
+- crisis disclosures;
+- raw conversation history;
+- anything the child or parent asked the agent to forget.
+
+Some families may approve precise school, location, or schedule details for a private profile because they materially improve practical help. Treat that as an explicit parent decision, not a default. Document who may receive the information and which external tools or providers may process it.

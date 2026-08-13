@@ -5,6 +5,35 @@ __pycache__/
 .pytest_cache/
 .coverage
 htmlcov/
-local/
-build-output/
 *.log
+
+# Private build and review output
+local/
+private/
+generated-profile/
+build-output/
+evaluation-output/
+
+# Live Hermes identity and configuration
+.env
+.env.*
+auth.json
+config.yaml
+gateway-config.yaml
+SOUL.md
+USER.md
+MEMORY.md
+
+# Live Hermes state
+memories/
+sessions/
+logs/
+cron/
+plans/
+workspace/
+state.db*
+hermes_state.db*
+response_store.db*
+gateway.pid
+gateway_state.json
+processes.json

@@ -1,0 +1,30 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "useGitignore": true,
+  "words": [
+    "allowlist",
+    "AKIA",
+    "allowlists",
+    "Amosa",
+    "ASD",
+    "EVALS",
+    "Gitleaks",
+    "Hermes",
+    "IEND",
+    "IHDR",
+    "Juniper",
+    "markdownlint",
+    "OpenAI",
+    "opusr",
+    "overblock",
+    "PERS",
+    "roleplay",
+    "SafeSearch",
+    "toolsets"
+  ],
+  "ignorePaths": [
+    ".git/**",
+    "assets/**"
+  ]
+}

@@ -1,0 +1,49 @@
+# MEMORY.md seed
+
+This file is a format for the generated child agent's operational notes at `$HERMES_HOME/memories/MEMORY.md`. It is not a diary and must not contain real family data in this repository.
+
+Use compact declarative facts. Keep reusable behavior in `SOUL.md`, child facts in `USER.md`, procedures in skills, and detailed history in the session system only when the parent approved it.
+
+```text
+Profile is designed for [APPROVED INTERFACE] with [SUPERVISION MODEL].
+§
+Parent-approved memory writes are [DISABLED OR APPROVAL-GATED].
+§
+When [RECURRING CONTEXT], the approach that helped was [COMPACT, NON-LABELING LESSON].
+§
+[STABLE PROFILE-SPECIFIC ENVIRONMENT OR TOOL FACT THAT THE AGENT NEEDS].
+§
+Parent correction: [DURABLE CORRECTION THAT PREVENTS A REPEATED MISTAKE].
+```
+
+## Good memory
+
+- a durable correction from the child or parent;
+- a stable tool or interface fact;
+- an approved recurring-project note;
+- a compact lesson that improves future help;
+- emotional context tied to a specific situation and what helped.
+
+## Bad memory
+
+- a completed-task log;
+- raw transcripts or long summaries;
+- secrets, credentials, or payment data;
+- inferred diagnoses;
+- identity labels based on one difficult moment;
+- crisis disclosures;
+- precise movement history;
+- low-value facts that can be rediscovered;
+- another person's private information.
+
+Example of contextual emotional memory:
+
+```text
+During a school-project deadline, the child felt overwhelmed by the number of steps. A three-item checklist helped them start.
+```
+
+Do not write:
+
+```text
+The child is anxious and cannot handle large projects.
+```
