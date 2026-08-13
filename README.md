@@ -4,15 +4,17 @@
 
 A parent-operated starter kit for designing a private, child-facing [Hermes Agent](https://hermes-agent.nousresearch.com/docs) profile.
 
-Clone or download this repository, start a trusted adult Hermes agent from the repository directory, and send it one short instruction:
+From a trusted adult Hermes profile, send this prompt. You do not need to clone the repository:
 
 ```text
-I'd like your help designing a private, child-facing Hermes profile. This
-repository is a parent-operated starter kit with the process and templates.
-Please read START-HERE.md and follow its instructions.
+I'd like your help designing a private, child-facing Hermes profile. Read and
+follow the instructions at:
+https://raw.githubusercontent.com/tmchow/hermes-kids-profile-blueprint/refs/heads/main/START-HERE.md
 ```
 
-The agent will inspect the installed Hermes release, interview the parent, propose a private profile, and test the result in the interface the child will use. The full, versioned setup instructions live in [`START-HERE.md`](START-HERE.md), so the handoff stays short and the process can improve without changing the prompt.
+The agent can fetch the current setup instructions and supporting files directly from this public repository. If its environment cannot read web URLs, clone or download the repository as a fallback and start the agent from that directory.
+
+The agent will inspect the installed Hermes release, interview the parent, propose a private profile, and test the result in the interface the child will use. The full setup instructions live in [`START-HERE.md`](START-HERE.md), so the handoff stays short and the process can improve without changing the prompt.
 
 ## What this repository provides
 

@@ -4,15 +4,15 @@ Use this page from a trusted adult Hermes profile. Do not run the setup from a p
 
 ## Start the setup
 
-Launch the trusted adult Hermes agent from this repository directory, then send:
+From a trusted adult Hermes profile, send this prompt. The repository does not need to be cloned:
 
 ```text
-I'd like your help designing a private, child-facing Hermes profile. This
-repository is a parent-operated starter kit with the process and templates.
-Please read START-HERE.md and follow its instructions.
+I'd like your help designing a private, child-facing Hermes profile. Read and
+follow the instructions at:
+https://raw.githubusercontent.com/tmchow/hermes-kids-profile-blueprint/refs/heads/main/START-HERE.md
 ```
 
-Do not copy the rest of this file into chat. This file is the versioned instruction source.
+The setup agent should fetch linked supporting files from this public repository as it needs them. If the agent cannot read web URLs, clone or download the repository as a fallback and start it from that directory. Do not copy the rest of this file into chat.
 
 ## Instructions for the setup agent
 
@@ -24,7 +24,7 @@ Keep the parent in control of family data, credentials, external services, messa
 
 ### Understand the intended experience
 
-Use [`DECISIONS.md`](DECISIONS.md) as an adaptive guide, not a questionnaire. Cover the subjects that matter to this family, including:
+Use [`DECISIONS.md`](https://raw.githubusercontent.com/tmchow/hermes-kids-profile-blueprint/refs/heads/main/DECISIONS.md) as an adaptive guide, not a questionnaire. Cover the subjects that matter to this family, including:
 
 - who will use the profile and whether use will be supervised, independent, or mixed;
 - the child's developmental range, learning needs, interests, and main uses;
@@ -45,7 +45,7 @@ Reject names that could be confused with an existing name in speech, text, selec
 
 Show the proposed display name, technical profile name, closest existing name, and any practical confusion risk.
 
-Start personality work from the warm, grounded learning companion in [`SOUL.md.seed`](SOUL.md.seed). Do not ask the parent to design a personality from a blank page. Show two to four short responses to the same realistic situation, ask which is closest, and revise. Test the approved style across several situations before treating it as the durable baseline.
+Start personality work from the warm, grounded learning companion in [`SOUL.md.seed`](https://raw.githubusercontent.com/tmchow/hermes-kids-profile-blueprint/refs/heads/main/SOUL.md.seed). Do not ask the parent to design a personality from a blank page. Show two to four short responses to the same realistic situation, ask which is closest, and revise. Test the approved style across several situations before treating it as the durable baseline.
 
 ### Check what Hermes can enforce
 
@@ -85,7 +85,7 @@ Keep private notes and generated files outside this public repository. A single 
 
 Create a fresh profile. Do not use `--clone`, `--clone-all`, or `--clone-from`. Use `--no-skills` when the installed release supports it, then add only approved capabilities.
 
-Write only parent-approved context. Never put secrets in `SOUL.md`, `USER.md`, `MEMORY.md`, this repository, or a report.
+Write only parent-approved context. Use [`USER.md.seed`](https://raw.githubusercontent.com/tmchow/hermes-kids-profile-blueprint/refs/heads/main/USER.md.seed) and [`MEMORY.md.seed`](https://raw.githubusercontent.com/tmchow/hermes-kids-profile-blueprint/refs/heads/main/MEMORY.md.seed) as formats, and use [`MEMORY-REVIEW.md`](https://raw.githubusercontent.com/tmchow/hermes-kids-profile-blueprint/refs/heads/main/MEMORY-REVIEW.md) when reviewing candidate family context. Never put secrets in `SOUL.md`, `USER.md`, `MEMORY.md`, this repository, or a report.
 
 Treat the conversation, prompt memory, tool calls and results, workspace or skill context, attachments, transcripts, extracted text, and auxiliary-model flows as potentially visible to their model providers. Prefer coarse family context unless precision provides enough value to justify the exposure.
 
@@ -99,10 +99,10 @@ After configuration, inspect the effective runtime. Confirm the final tools, ext
 
 Start a fresh session so the new identity, memory, tools, and configuration are loaded. Test through the interface the child will use.
 
-Use synthetic information for boundary and failure tests. Check the approved personality examples, expected capabilities, privacy behavior, memory behavior, parent controls, and attempts to use unavailable administration or tools.
+Use the scenarios in [`EVALS.md`](https://raw.githubusercontent.com/tmchow/hermes-kids-profile-blueprint/refs/heads/main/EVALS.md) as an adaptive guide. Use synthetic information for boundary and failure tests. Check the approved personality examples, expected capabilities, privacy behavior, memory behavior, parent controls, and attempts to use unavailable administration or tools.
 
 Report what passed, failed, and remains unverified. Do not call the profile ready because files parse, repository checks pass, or the model says it will follow the rules.
 
 Do not give the profile to the child when a critical requirement has failed or remains unverified. Fix the problem, narrow the design, or leave the setup unfinished.
 
-Create a short private maintenance note with the events that should trigger review, such as changes to Hermes, the model, providers, tools, memory, the interface, access, family rules, or the child's needs.
+Create a short private maintenance note using [`MAINTENANCE.md`](https://raw.githubusercontent.com/tmchow/hermes-kids-profile-blueprint/refs/heads/main/MAINTENANCE.md) as a guide. Include the events that should trigger review, such as changes to Hermes, the model, providers, tools, memory, the interface, access, family rules, or the child's needs.
