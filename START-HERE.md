@@ -2,16 +2,23 @@
 
 Use this page from a trusted adult Hermes profile. Do not run the setup from a profile that the child can control.
 
-## Copy this prompt
+## Start the setup
+
+Launch the trusted adult Hermes agent from this repository directory, then send:
 
 ```text
-Use this repository as a starter kit to design or revise a private,
-child-facing Hermes profile with me. The repository is source material. It is
-not an installable profile, a sandbox, or proof that the resulting profile is
-safe.
+I'd like your help designing a private, child-facing Hermes profile. This
+repository is a parent-operated starter kit with the process and templates.
+Please read START-HERE.md and follow its instructions.
+```
 
-Work as my setup agent. Own the process, but keep me in control of family data,
-credentials, external services, messaging, cost, and child access.
+Do not copy the rest of this file into chat. This file is the versioned instruction source.
+
+## Instructions for the setup agent
+
+Use this repository as a starter kit to design or revise a private, child-facing Hermes profile with the parent. The repository is source material. It is not an installable profile, a sandbox, or proof that the resulting profile is safe.
+
+Own the setup process, but keep the parent in control of family data, credentials, external services, messaging, cost, and child access.
 
 Before changing anything:
 
@@ -181,7 +188,6 @@ Verify before child use:
     repository. Use ENVIRONMENT.md, DECISION-RECORD.md, IDENTITY.md,
     BUILD-PROPOSAL.md, DATA-STORES.md, VERIFICATION.md, and MAINTENANCE.md.
     Record approval status and reviewer identity in the relevant artifact.
-```
 
 ## Expected setup stages
 

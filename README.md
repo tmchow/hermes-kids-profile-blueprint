@@ -4,13 +4,19 @@
 
 A parent-operated starter kit for designing a private, child-facing [Hermes Agent](https://hermes-agent.nousresearch.com/docs) profile.
 
-Give this repository to a trusted adult Hermes agent. The agent will inspect the installed Hermes release, interview the parent, propose a private profile, and test the result in the interface the child will use.
+Clone or download this repository, start a trusted adult Hermes agent from the repository directory, and send it one short instruction:
 
-Start with [`START-HERE.md`](START-HERE.md).
+```text
+I'd like your help designing a private, child-facing Hermes profile. This
+repository is a parent-operated starter kit with the process and templates.
+Please read START-HERE.md and follow its instructions.
+```
+
+The agent will inspect the installed Hermes release, interview the parent, propose a private profile, and test the result in the interface the child will use. The full, versioned setup instructions live in [`START-HERE.md`](START-HERE.md), so the handoff stays short and the process can improve without changing the prompt.
 
 ## What this repository provides
 
-- a copyable bootstrap prompt;
+- a short bootstrap instruction backed by a versioned setup playbook;
 - a child-neutral `SOUL.md` starting point;
 - seed formats for `USER.md` and `MEMORY.md`;
 - an adaptive parent decision guide;
@@ -39,7 +45,7 @@ The setup agent must inspect the current Hermes documentation and resolved runti
 
 ## File map
 
-- [`START-HERE.md`](START-HERE.md): bootstrap prompt and build sequence
+- [`START-HERE.md`](START-HERE.md): setup-agent instructions and build sequence
 - [`SOUL.md.seed`](SOUL.md.seed): default relationship and behavior language
 - [`USER.md.seed`](USER.md.seed): child profile context format
 - [`MEMORY.md.seed`](MEMORY.md.seed): agent operational-memory format
