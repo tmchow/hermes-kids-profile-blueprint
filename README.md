@@ -9,7 +9,7 @@ From a trusted adult Hermes profile, send this prompt. You do not need to clone 
 ```text
 I'd like your help designing a private, child-facing Hermes profile. Read and
 follow the instructions at:
-https://raw.githubusercontent.com/tmchow/hermes-kids-profile-blueprint/refs/heads/main/START-HERE.md
+https://raw.githubusercontent.com/tmchow/hermes-kids-profile-blueprint/main/START-HERE.md
 ```
 
 The agent can fetch the current setup instructions and supporting files directly from this public repository. If its environment cannot read web URLs, clone or download the repository as a fallback and start the agent from that directory.
