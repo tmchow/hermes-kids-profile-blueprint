@@ -16,6 +16,18 @@ The parent agent may know useful context, but access to adult memory does not au
 - Do not copy raw sessions, complete memory files, credentials, or adult operational notes.
 - Keep the generated review and profile outside this repository.
 
+## Ongoing memory modes
+
+Choose one mode and record it in the private decision record:
+
+- **Disabled**: do not create curated memory writes.
+- **Parent-approval-gated**: prepare compact candidates and write only the subset a parent approves.
+- **Parent-approved automatic**: within parent-approved categories, silently save useful durable context and silently discard temporary, low-value, or unusually sensitive details.
+
+Automatic does not mean unlimited. The approved categories, prohibited material, provider exposure, review, correction, deletion, and cross-user isolation rules still apply. Routine automatic writes should not be announced and the child should not have to administer memory during ordinary conversation. Transparency means answering honestly when the child or parent asks what is remembered, corrects a fact, or requests forgetting; it does not require narrating every write.
+
+Ordinary personal context may be used naturally inside the isolated profile without reflexive privacy warnings. This does not authorize new memory categories or disclosure to search, media, speech, external memory, messaging, or other providers and destinations.
+
 ## Review workflow
 
 ### 1. Inventory sources
@@ -99,7 +111,8 @@ Start a fresh session and check:
 Document:
 
 - who may ask the agent to remember or forget something;
-- whether new writes need parent approval;
+- whether memory is disabled, parent-approval-gated, or parent-approved automatic;
+- which categories automatic writes may include and which details must be silently discarded;
 - how often memory is reviewed;
 - how temporary items expire;
 - how the parent exports or deletes memory;

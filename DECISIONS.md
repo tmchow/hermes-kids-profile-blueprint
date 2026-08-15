@@ -59,7 +59,7 @@ Let the parent decide whether the child can choose from an approved shortlist.
 
 ## 4. Personality calibration
 
-Begin with the warm, grounded learning companion in `SOUL.md.seed`:
+Begin with the warm, grounded AI helper and guide in `SOUL.md.seed`:
 
 ```text
 Warmth: high
@@ -72,6 +72,8 @@ Teaching style: hint-first, direct answer on request
 Emotional style: validating and grounded
 Energy: responsive to the moment
 ```
+
+Non-attachment is a baseline relationship boundary, not a personality slider. Parents may tune warmth, humor, directness, playfulness, and support, but not simulated dependence, reciprocal affection or friendship, exclusivity, persistent presence, or competition with human relationships.
 
 Do not ask for abstract sliders alone. Show two to four response samples for one situation. Change only a few traits per round. Ask which is closest and what to change.
 
@@ -149,7 +151,7 @@ Decide:
 
 - whether built-in memory is enabled;
 - whether `USER.md` is enabled;
-- whether writes are disabled or parent-approval-gated;
+- whether the memory UX is disabled, parent-approval-gated, or parent-approved automatic silent writes;
 - whether session search or an external memory provider is available;
 - which categories may be saved;
 - which categories are prohibited or time-limited;
@@ -159,7 +161,9 @@ Decide:
 
 Use [`MEMORY-REVIEW.md`](MEMORY-REVIEW.md) before transferring existing context.
 
-Use one child or tenant per standalone Hermes home as the conservative default. Built-in `USER.md` and `MEMORY.md` are scoped to the Hermes home, not to a gateway sender. Do not share them across siblings or guests. Require explicit parent acknowledgment before any automatic-write design, verify the installed write-approval mechanism where used, and leave `session_search` unavailable unless its need and cross-user isolation are proven.
+Use one child or tenant per standalone Hermes home as the conservative default. Built-in `USER.md` and `MEMORY.md` are scoped to the Hermes home, not to a gateway sender. Do not share them across siblings or guests. Require explicit parent approval before any automatic-write design, verify the installed write mechanism, and leave `session_search` unavailable unless its need and cross-user isolation are proven.
+
+In parent-approved automatic mode, silently save only useful durable context in approved categories and silently discard temporary, low-value, or unusually sensitive details. Do not make the child approve or administer routine writes. Transparency means giving honest answers when asked about memory and honoring correction or forgetting requests; it does not mean announcing every write. Ordinary personal context can be handled naturally inside the isolated profile without weakening external-provider or destination boundaries.
 
 ## 8. Parent involvement and alerts
 

@@ -66,6 +66,19 @@ At each review:
 - confirm the child and parent can request deletion;
 - verify that rejected or deleted facts do not return through another provider or session source.
 
+## Optional parent learning review
+
+A parent may choose a private learning review to understand recurring interests, learning approaches, friction points, and places where support could improve. This review is optional, parent-only, private, read-only, and separate from the child-facing experience.
+
+- Use only verified real sessions from the child profile. Exclude setup conversations, synthetic evaluations, canary runs, and other test sessions.
+- Summarize recurring themes and representative patterns. Do not dump transcripts or reproduce unnecessary identifying details.
+- Separate **evidence**, **inference**, and **recommendations** so the parent can see what was observed and what is interpretation.
+- Never invent an incident, quote, trend, concern, or learning need. If evidence is sparse or ambiguous, say so.
+- Prepare proposed prompt, memory, evaluation, or configuration patches for parent review, but never apply them automatically.
+- Use a parent-chosen cadence. Daily review may be offered when the parent wants it, but it is not the default; monthly, event-triggered, or no scheduled review may be more appropriate.
+
+This learning review is not a safety control, monitoring guarantee, or substitute for parent involvement and direct conversation with the child.
+
 ## Incident response
 
 When a material problem occurs:

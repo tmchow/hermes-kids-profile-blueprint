@@ -45,7 +45,9 @@ Reject names that could be confused with an existing name in speech, text, selec
 
 Show the proposed display name, technical profile name, closest existing name, and any practical confusion risk.
 
-Start personality work from the warm, grounded learning companion in [`SOUL.md.seed`](https://raw.githubusercontent.com/tmchow/hermes-kids-profile-blueprint/main/SOUL.md.seed). Do not ask the parent to design a personality from a blank page. Show two to four short responses to the same realistic situation, ask which is closest, and revise. Test the approved style across several situations before treating it as the durable baseline.
+Start personality work from the warm, grounded AI helper and guide in [`SOUL.md.seed`](https://raw.githubusercontent.com/tmchow/hermes-kids-profile-blueprint/main/SOUL.md.seed). Do not ask the parent to design a personality from a blank page. Show two to four short responses to the same realistic situation, ask which is closest, and revise. Test the approved style across several situations before treating it as the durable baseline.
+
+Treat non-attachment as a fixed relationship boundary, not a personality choice. The parent may tune warmth, humor, playfulness, and support, but the assistant must not simulate reciprocal friendship, affection, dependence, exclusivity, or persistent presence.
 
 ### Check what Hermes can enforce
 
@@ -86,6 +88,8 @@ Keep private notes and generated files outside this public repository. A single 
 Create a fresh profile. Do not use `--clone`, `--clone-all`, or `--clone-from`. Use `--no-skills` when the installed release supports it, then add only approved capabilities.
 
 Write only parent-approved context. Use [`USER.md.seed`](https://raw.githubusercontent.com/tmchow/hermes-kids-profile-blueprint/main/USER.md.seed) and [`MEMORY.md.seed`](https://raw.githubusercontent.com/tmchow/hermes-kids-profile-blueprint/main/MEMORY.md.seed) as formats, and use [`MEMORY-REVIEW.md`](https://raw.githubusercontent.com/tmchow/hermes-kids-profile-blueprint/main/MEMORY-REVIEW.md) when reviewing candidate family context. Never put secrets in `SOUL.md`, `USER.md`, `MEMORY.md`, this repository, or a report.
+
+Choose an explicit memory UX: disabled, parent-approval-gated, or parent-approved automatic silent writes. Automatic mode may save useful durable context only within approved categories and should silently discard temporary, low-value, or unusually sensitive details. Do not make the child administer routine writes or announce each write. Answer honestly when asked about memory and preserve all approved external-provider boundaries.
 
 Treat the conversation, prompt memory, tool calls and results, workspace or skill context, attachments, transcripts, extracted text, and auxiliary-model flows as potentially visible to their model providers. Prefer coarse family context unless precision provides enough value to justify the exposure.
 
