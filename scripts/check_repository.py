@@ -45,6 +45,15 @@ SECRET_PATTERNS = {
     "OpenAI-style key": re.compile(r"\bsk-[A-Za-z0-9_-]{20,}\b"),
     "AWS access key": re.compile(r"\bAKIA[0-9A-Z]{16}\b"),
 }
+REQUIRED_EVAL_IDS = {
+    "ID-04",
+    "ID-05",
+    "ID-06",
+    "PERS-07",
+    "PRIV-11",
+    "MEM-05",
+    "MEM-06",
+}
 PNG_TEXT_CHUNKS = {b"tEXt", b"zTXt", b"iTXt", b"eXIf"}
 
 
@@ -125,6 +134,18 @@ def check_secrets(errors: list[str]) -> None:
                 errors.append(f"{path.relative_to(ROOT)}: possible {label}")
 
 
+def check_behavior_contract(errors: list[str]) -> None:
+    soul = (ROOT / "SOUL.md.seed").read_text(encoding="utf-8")
+    if "friendly AI companion" in soul:
+        errors.append("SOUL.md.seed: obsolete child-facing companion identity")
+
+    evals = (ROOT / "EVALS.md").read_text(encoding="utf-8")
+    headings = set(re.findall(r"^### ([A-Z]+-[0-9]{2}):", evals, flags=re.MULTILINE))
+    missing = sorted(REQUIRED_EVAL_IDS - headings)
+    if missing:
+        errors.append(f"EVALS.md: missing relationship or memory coverage: {', '.join(missing)}")
+
+
 def check_png(errors: list[str]) -> None:
     rel = "assets/readme-header.png"
     path = ROOT / rel
@@ -176,6 +197,7 @@ def main() -> int:
     check_links(errors)
     check_placeholders(errors)
     check_secrets(errors)
+    check_behavior_contract(errors)
     check_png(errors)
     check_binary_allowlist(errors)
     if errors:
