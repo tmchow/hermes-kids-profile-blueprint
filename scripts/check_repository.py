@@ -14,6 +14,8 @@ EXPECTED_FILES = {
     ".github/workflows/hygiene.yml",
     ".gitignore",
     ".markdownlint-cli2.jsonc",
+    "AGENTS.md",
+    "CLAUDE.md",
     "DECISIONS.md",
     "EVALS.md",
     "EXAMPLE.md",
@@ -79,11 +81,24 @@ def check_manifest(errors: list[str]) -> None:
         errors.append(f"unexpected public files: {', '.join(extra)}")
 
 
+def check_instruction_alias(errors: list[str]) -> None:
+    alias = ROOT / "CLAUDE.md"
+    canonical = ROOT / "AGENTS.md"
+    if not alias.is_symlink():
+        errors.append("CLAUDE.md: must be a symlink to AGENTS.md")
+        return
+    raw_target = alias.readlink()
+    if raw_target != Path("AGENTS.md"):
+        errors.append("CLAUDE.md: symlink target must be exactly AGENTS.md")
+    if (alias.parent / raw_target).resolve() != canonical.resolve():
+        errors.append("CLAUDE.md: symlink must resolve to the root AGENTS.md")
+
+
 def text_files() -> list[Path]:
     return [
         ROOT / rel
         for rel in sorted(EXPECTED_FILES)
-        if Path(rel).suffix in TEXT_SUFFIXES and (ROOT / rel).exists()
+        if rel != "CLAUDE.md" and Path(rel).suffix in TEXT_SUFFIXES and (ROOT / rel).exists()
     ]
 
 
@@ -194,6 +209,7 @@ def check_binary_allowlist(errors: list[str]) -> None:
 def main() -> int:
     errors: list[str] = []
     check_manifest(errors)
+    check_instruction_alias(errors)
     check_links(errors)
     check_placeholders(errors)
     check_secrets(errors)
