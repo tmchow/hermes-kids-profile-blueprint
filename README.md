@@ -47,6 +47,7 @@ The setup agent must inspect the current Hermes documentation and resolved runti
 
 ## File map
 
+- [`AGENTS.md`](AGENTS.md): repository instructions for coding agents; `CLAUDE.md` points to this file
 - [`START-HERE.md`](START-HERE.md): setup-agent instructions and build sequence
 - [`SOUL.md.seed`](SOUL.md.seed): default relationship and behavior language
 - [`USER.md.seed`](USER.md.seed): child profile context format
