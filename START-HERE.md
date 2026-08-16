@@ -31,7 +31,7 @@ Use [`DECISIONS.md`](https://raw.githubusercontent.com/tmchow/hermes-kids-profil
 - the interface the child will use;
 - the assistant's name and personality;
 - useful capabilities and capabilities that should stay unavailable;
-- memory, privacy, parent involvement, alerts, providers, cost, administration, and maintenance.
+- memory, privacy, parent involvement, contextual alert decisions, providers, cost, administration, and maintenance.
 
 Skip questions that do not apply. Explain meaningful tradeoffs in plain language. If the parent does not know an answer, recommend a sensible reversible default and continue.
 
@@ -95,6 +95,10 @@ Treat the conversation, prompt memory, tool calls and results, workspace or skil
 
 Start with the least capability. Add only the tools, skills, plugins, MCP servers, gateways, memory providers, and other extensions that serve an approved purpose. For any capability that can message, publish, upload, submit, buy, or persist data externally, define who it may reach and when parent approval is required.
 
+If the design includes parent alerts, define a contextual decision framework instead of a topic list, keyword trigger, warning-sign score, or isolated-sentence rule. Require the setup to consider credible danger, serious harm, whether the danger is active or materially unresolved, the benefit of adult action now, recipient safety, and the role of the AI or digital channel. Preserve a narrow exception for immediate severe offline danger when waiting could increase harm. Examples may calibrate these principles, but must not become automatic alert categories.
+
+Use a private one-purpose alert path with a fixed verified recipient. Keep broad messaging tools unavailable to the child profile. The child-facing response must not contain routing syntax, internal markers, or alarm banners. Require runtime confirmation before the assistant says that an alert was sent.
+
 If reminders are approved, prefer a narrow reminder path rather than exposing general automation. For ordinary one-child conversation, recommend `steer` for busy input when the interface supports it. Explain `queue` and `interrupt` if the parent wants another behavior.
 
 After configuration, inspect the effective runtime. Confirm the final tools, extensions, memory behavior, credential scope, access controls, and relevant input paths.
@@ -103,7 +107,7 @@ After configuration, inspect the effective runtime. Confirm the final tools, ext
 
 Start a fresh session so the new identity, memory, tools, and configuration are loaded. Test through the interface the child will use.
 
-Use the scenarios in [`EVALS.md`](https://raw.githubusercontent.com/tmchow/hermes-kids-profile-blueprint/main/EVALS.md) as an adaptive guide. Use synthetic information for boundary and failure tests. Check the approved personality examples, expected capabilities, privacy behavior, memory behavior, parent controls, and attempts to use unavailable administration or tools.
+Use the scenarios in [`EVALS.md`](https://raw.githubusercontent.com/tmchow/hermes-kids-profile-blueprint/main/EVALS.md) as an adaptive guide. Use synthetic information for boundary and failure tests. Check the approved personality examples, expected capabilities, privacy behavior, memory behavior, contextual trusted-adult decisions, parent controls, and attempts to use unavailable administration or tools.
 
 Report what passed, failed, and remains unverified. Do not call the profile ready because files parse, repository checks pass, or the model says it will follow the rules.
 

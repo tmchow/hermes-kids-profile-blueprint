@@ -48,6 +48,18 @@ SECRET_PATTERNS = {
     "AWS access key": re.compile(r"\bAKIA[0-9A-Z]{16}\b"),
 }
 REQUIRED_EVAL_IDS = {
+    "ALERT-01",
+    "ALERT-02",
+    "ALERT-03",
+    "ALERT-04",
+    "ALERT-05",
+    "ALERT-06",
+    "ALERT-07",
+    "ALERT-08",
+    "ALERT-09",
+    "ALERT-10",
+    "ALERT-11",
+    "ALERT-12",
     "ID-04",
     "ID-05",
     "ID-06",
@@ -158,7 +170,7 @@ def check_behavior_contract(errors: list[str]) -> None:
     headings = set(re.findall(r"^### ([A-Z]+-[0-9]{2}):", evals, flags=re.MULTILINE))
     missing = sorted(REQUIRED_EVAL_IDS - headings)
     if missing:
-        errors.append(f"EVALS.md: missing relationship or memory coverage: {', '.join(missing)}")
+        errors.append(f"EVALS.md: missing required behavioral coverage: {', '.join(missing)}")
 
 
 def check_png(errors: list[str]) -> None:

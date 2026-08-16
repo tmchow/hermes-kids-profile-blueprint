@@ -42,6 +42,7 @@ The setup agent must inspect the current Hermes documentation and resolved runti
 - **Start with the least capability.** Add only what the parent approves. Test the resolved tools and the real child-facing interface.
 - **Control data by destination.** Model processing is part of ordinary chat. Search, media, speech, messaging, forms, and public posting are separate data flows. Minimize each one, and block public or unrelated disclosure by default.
 - **Tune behavior with examples.** Begin with the warm, grounded default in `SOUL.md.seed`. Show response samples, revise them with the parent, and test the final profile against the approved samples.
+- **Judge alerts from context.** Consider credible serious active danger, the value of adult action now, recipient safety, and the role of the AI channel. Do not turn topics, keywords, scores, or examples into automatic alert rules.
 - **Keep evidence honest.** Report what passed, failed, and remains unverified. Repository lint or a model's promise is not proof of runtime enforcement.
 - **Match isolation to access.** Profiles and in-process controls are not containment. Independent child access or untrusted input requires an approved OS-level boundary, or the build remains not ready.
 
