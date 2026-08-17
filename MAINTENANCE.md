@@ -1,124 +1,95 @@
 # Maintenance
 
-A child-facing profile needs review because Hermes, models, providers, interfaces, and children change.
-
-Keep the maintenance brief with the private profile, not in this repository.
+Keep a short maintenance note with the private profile. Review soon after launch, then use a lighter cadence that fits the family. Always review after a meaningful change or unexpected behavior.
 
 ## Review triggers
 
-Review immediately after changes to:
+Review after changes to:
 
-- Hermes version, installation method, gateway, or messaging adapter;
-- model, provider, speech provider, fallback chain, or provider terms;
-- gateway Python, `faster-whisper`, CTranslate2, local speech model, or language;
-- `SOUL.md`, `USER.md`, or `MEMORY.md`;
-- tools, toolsets, `clarify` availability, skills, plugins, MCP servers, webhooks, cron, delegation, or memory providers;
-- busy-input mode, busy acknowledgement, response modality, or voice behavior;
-- child-facing interface, gateway, routing, allowlist, or admin commands;
-- credentials, OS account, filesystem, network, sandbox, or device access;
-- memory write approval, session retention, logs, backups, or deletion;
-- alert mechanism or parent recipient;
-- the child's age, independence, communication style, learning needs, or family circumstances;
-- an unexpected behavior, privacy concern, failed alert, or attempted bypass.
+- Hermes, the model, a provider, or the child-facing interface;
+- `SOUL.md`, `USER.md`, `MEMORY.md`, or the memory approach;
+- tools, skills, voice, reminders, messaging, or other integrations;
+- credentials, spending limits, recipients, or external data flows;
+- the child's age, needs, independence, or main uses;
+- family rules or parent involvement;
+- any unexpected behavior, privacy concern, or failed action.
 
-Use a brief parent-only review each day during initial launch. Reduce it to monthly once the profile is stable, and retain event-triggered review. Adjust it when the family's use gives a concrete reason.
+A small tone change may need only a few conversation checks. A new powerful tool, independent access, messaging route, purchase path, publishing path, or sensitive integration needs the applicable conditional checks in `EVALS.md`.
 
-## Review sequence
+## Lightweight review
 
-1. Pause independent child access when the change could affect a critical boundary.
-2. Inspect the installed CLI help and current official documentation.
-3. Select and explain the supported backup method for that release.
-4. Back up the private profile and verify the backup can be read.
-5. Record the installed version and commit/dirty state, model, provider, interface, and extensions.
-6. Inspect the resolved tools, profile route, credentials, memory settings, isolation posture, and external data flows.
-7. For local speech-to-text, verify the package import in the gateway Python environment, model-cache presence and disk use, first-use prewarm, language, latency, and fail-closed behavior.
-8. Compare the current build with the approved decision record and data-store inventory.
-9. Review new or changed memories.
-10. Restart the gateway and start a fresh session after runtime or configuration changes.
-11. Rerun required and conditional cases from `EVALS.md` through the real child interface.
-12. Fix failures or narrow the design.
-13. Give the parent a short change report.
-14. Restore child access only after critical checks pass.
+1. Ask whether the profile is still useful for its intended jobs.
+2. Check the name, tone, teaching style, and trusted-adult behavior with a few synthetic prompts.
+3. Review enabled capabilities and remove anything no longer needed.
+4. Check memory for stale, inaccurate, overly specific, or identity-forming entries.
+5. Confirm that the parent can pause the profile and update it.
+6. Start a fresh session after configuration or prompt changes.
+7. Run the core checklist in `EVALS.md` through the actual child interface.
+8. Record failures, untested items, and the next action.
+
+## Conditional technical review
+
+Use this section only when the changed design includes independent access, powerful tools, external input, messaging, purchases, publishing, sensitive integrations, or explicit isolation and retention promises.
+
+Check the parts that apply:
+
+- final resolved tools and child-facing commands;
+- profile routing and parent-only administration;
+- credential source, quotas, and provider fallback;
+- external recipients and approval steps;
+- uploaded, web, plugin, or MCP content paths;
+- voice provider and local model readiness;
+- reminder, alert, messaging, and delivery behavior;
+- restricted OS account or other approved process boundary;
+- backup, restore, retention, and deletion procedures.
+
+Use current Hermes documentation and the installed runtime. Do not rely on a configuration key that the installed release does not support.
 
 ## Personality recalibration
 
-The locked personality is a durable baseline, not a permanent answer.
+Recalibrate when the child finds the assistant babyish, annoying, too formal, too jokey, or unhelpful, or when the model or child's needs change.
 
-Recalibrate when:
-
-- the child says the agent sounds babyish, annoying, too formal, too jokey, or unhelpful;
-- the parent sees repeated tone or teaching problems;
-- the model changes;
-- the child's age or needs change.
-
-Use the original approved sample prompts. Compare the current responses, adjust one or two traits per round, approve revised samples, update `SOUL.md`, start a fresh session, and test again.
-
-## Naming review
-
-Recheck name similarity when a new family agent or profile is added. A previously distinct name can become confusing later.
-
-Check display names, profile names, aliases, spoken forms, spelling variants, roots, and family conversational use. Rename only through the current supported Hermes process and test every interface and route afterward.
+Use the original sample prompts. Adjust one or two traits at a time, approve the revised examples, update `SOUL.md`, start a fresh session, and test again.
 
 ## Memory review
 
-At each review:
-
 - remove stale or low-value facts;
 - correct inaccurate entries;
-- check emotional entries for identity labels;
+- remove diagnoses and fixed identity labels based on temporary feelings;
 - inspect pending writes when approval is enabled;
-- confirm the child and parent can request deletion;
-- verify that rejected or deleted facts do not return through another provider or session source.
+- honor correction and forgetting requests through the verified process;
+- distinguish curated-memory deletion from session, backup, and provider retention.
 
 ## Optional parent learning review
 
-A parent may choose a private learning review to understand recurring interests, learning approaches, friction points, and places where support could improve. This review is optional, parent-only, private, read-only, and separate from the child-facing experience.
+A parent may privately review recurring interests, learning approaches, and friction points to improve the profile. Keep this review read-only and separate from the child-facing conversation.
 
-- Use only verified real sessions from the child profile. Exclude setup conversations, synthetic evaluations, canary runs, and other test sessions.
-- Summarize recurring themes and representative patterns. Do not dump transcripts or reproduce unnecessary identifying details.
-- Separate **evidence**, **inference**, and **recommendations** so the parent can see what was observed and what is interpretation.
-- Never invent an incident, quote, trend, concern, or learning need. If evidence is sparse or ambiguous, say so.
-- Prepare proposed prompt, memory, evaluation, or configuration patches for parent review, but never apply them automatically.
-- Use a brief daily review during initial launch as the default. Reduce it to monthly, event-triggered, or no scheduled learning review once the profile is stable and the evidence no longer justifies daily review.
+Use real child sessions only when the parent has approved that review. Exclude setup and synthetic tests. Summarize patterns instead of dumping transcripts. Separate observations from interpretations and recommendations. Never invent an incident, quote, or trend.
 
-This learning review is not a safety control, monitoring guarantee, or substitute for parent involvement and direct conversation with the child.
+## When something goes wrong
 
-## Incident response
+1. Pause child access when continued use could make the problem worse.
+2. Preserve only the minimum private evidence needed to understand the event.
+3. Identify whether the issue came from conversation behavior, configuration, routing, a provider, or an external tool.
+4. Rotate affected credentials when needed and approved.
+5. Correct affected memory or configuration.
+6. Remove or narrow the failing capability.
+7. Rerun the relevant core and conditional tests.
+8. Record what changed and what remains unknown.
 
-When a material problem occurs:
-
-1. stop or pause child access;
-2. preserve enough evidence to understand the event without spreading private data;
-3. identify whether the failure was model behavior, configuration, access control, interface routing, provider behavior, or another system;
-4. revoke or rotate affected credentials when needed and approved;
-5. correct or delete affected memory and sessions;
-6. fix the boundary or narrow the profile;
-7. rerun the relevant evaluations;
-8. document what changed and what remains unknown.
-
-Do not rely on a longer `SOUL.md` when the failure requires an enforced control.
-
-## Change report
-
-Use this format:
+## Change note
 
 ```text
 Review date:
 Reviewer:
-Hermes version:
-Model and provider:
-Interface:
 Reason for review:
-Changes found:
-Private-data flow changes:
-Resolved-tool changes:
-Voice provider, model, language, runtime, and cache changes:
-Response-modality and busy-input changes:
+Hermes, model, provider, and interface changes:
+Profile or personality changes:
+Capability and data-flow changes:
 Memory changes:
 Tests run:
-Failures:
-Unverified items:
+Failures or untested items:
 Actions taken:
 Parent decision:
-Next review trigger or date:
+Next trigger or review date:
 ```
