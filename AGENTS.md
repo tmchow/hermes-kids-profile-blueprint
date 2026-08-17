@@ -2,7 +2,7 @@
 
 ## Purpose and boundaries
 
-This repository is a public, parent-operated starter kit for designing a private child-facing Hermes profile. It is source material, not an installable profile, operating-system sandbox, certification, clinical validation, or safety guarantee.
+This repository is a public, parent-operated starter kit for creating a useful child-facing Hermes profile. Keep the default path approachable. Put advanced technical checks behind the capabilities or access patterns that require them.
 
 Keep changes small, reviewable, and limited to this repository. Do not build a real child profile here.
 
@@ -19,7 +19,7 @@ Read the files that govern the change before editing:
 - `STYLE.md` defines public writing rules.
 - `scripts/check_repository.py` defines the allowed repository shape and automated hygiene contract.
 
-When files disagree, preserve the safety boundary and fix the inconsistency. Do not silently choose the more permissive interpretation.
+When files disagree, fix the inconsistency. Preserve consequential parent controls without turning supervised conversational use into a security audit.
 
 ## Privacy and security
 
@@ -43,8 +43,8 @@ Preserve these rules unless the repository explicitly changes its documented pol
 - Start from the least capability and add only approved tools, skills, extensions, providers, and data flows.
 - Keep non-attachment as a fixed relationship boundary. Warmth and playfulness are tunable; reciprocal friendship, affection, dependence, exclusivity, and persistent-presence claims are not.
 - Escalate situations that require a trusted adult. Do not position the assistant as a substitute for a parent, clinician, emergency service, or other qualified person.
-- Test the resolved runtime through the interface the child will use. Distinguish passed, failed, and unverified results.
-- Do not call a profile ready when a critical requirement failed or remains unverified.
+- Test the profile through the interface the child will use. Fix important failures before child use.
+- Require advanced runtime and isolation checks only when independent access, powerful tools, external input, messaging, purchases, publishing, sensitive integrations, or strong privacy promises make them relevant.
 
 ## Editing workflow
 
@@ -78,12 +78,12 @@ gitleaks dir --no-banner --redact .
 gitleaks git --no-banner --redact
 ```
 
-A passing repository checker proves repository hygiene only. It does not prove that a deployed profile is safe or correctly isolated.
+A passing repository checker proves repository hygiene only. Test the finished profile through the child-facing interface.
 
 ## Pull requests
 
 - Branch from current `origin/main` and keep one coherent concern per pull request.
 - Explain the user-visible or contract change and why it is needed.
 - List the exact validation commands run and report failures or skipped checks honestly.
-- Call out privacy, security, runtime-enforcement, and compatibility effects when relevant.
+- Call out privacy, security, runtime, and compatibility effects when they are relevant to the change.
 - Do not merge unless the maintainer explicitly asks.

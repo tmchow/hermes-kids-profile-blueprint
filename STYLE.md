@@ -33,7 +33,7 @@ Run two editing passes on every public document:
 1. **No-AI-Slop pass:** Remove generic openings, fake contrasts, repeated summaries, puffery, decorative headings, robotic cadence, and unnecessary em dashes.
 2. **Humanizer pass:** Make the text natural and readable without changing technical meaning.
 
-After the humanizer pass, compare the result with the technical draft. Restore any changed requirement, command, configuration key, warning, or readiness result.
+After the humanizer pass, compare the result with the technical draft. Restore any requirement, command, configuration key, warning, or readiness result that remains part of the approved policy.
 
 Do not let an editing tool weaken these terms:
 
@@ -44,6 +44,5 @@ Do not let an editing tool weaken these terms:
 - `verified`
 - `unverified`
 - `fail`
-- `do not give the profile to a child`
 
 Do not rewrite code, commands, paths, configuration keys, placeholders, or expected output for style.
