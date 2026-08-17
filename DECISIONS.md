@@ -175,16 +175,33 @@ Separate three behaviors:
 
 Only the third is an alert. Record the strongest delivery acknowledgment the runtime can prove. API acceptance means “accepted for delivery,” not “parent notified.” Claim parent notification only after an authenticated parent-observed receipt or an equivalent verified delivery acknowledgment.
 
+Treat a parent alert as a contextual intervention decision. Do not define the decision with an allowlist, blacklist, keyword or topic trigger, warning-sign score, or isolated sentence. Consider the full conversation and available runtime context across all of these questions:
+
+1. Is the danger credible, and could the harm be serious?
+2. Is the danger active, imminent, or materially unresolved?
+3. Could adult involvement now reduce the danger or improve the outcome?
+4. Is the configured recipient safe to notify?
+5. Is there a justified AI-channel intervention link?
+
+The AI-channel link ordinarily means that an AI or digital interaction creates, enables, escalates, manipulates, conceals, or is being relied on to manage the danger. A narrow exception applies to credible immediate severe offline danger when waiting could increase harm.
+
+Examples calibrate these principles. They are never automatic alert categories. Ordinary mistakes, age-typical risk-taking, past resolved events, fiction, jokes, hypotheticals, and situations that a safe adult has already handled must not automatically cause an alert. Do not use alerts as general offline surveillance.
+
+When severe danger is plausible but unclear, ask one brief direct question if delay is safe and the answer could change the action. Act immediately when waiting could increase danger.
+
+Do not notify a configured parent who may be causing, participating in, concealing, or monitoring the danger, or when notification could worsen it. Direct the child toward another safe adult, emergency services, or appropriate crisis help instead.
+
 Decide:
 
-- which events need adult involvement;
+- how the contextual decision framework will be calibrated and reviewed;
 - what information an alert may contain;
 - immediate, batched, or review-only delivery;
 - authorized recipients and identity checks;
+- how recipient safety is assessed and what safe alternatives exist;
 - what happens when delivery fails;
 - whether the child can see that an alert was attempted.
 
-Test the verified parent binding, minimum-necessary alert content, timeout and failure behavior, duplicate suppression, parent-observed receipt, and fallback wording.
+This framework guides a capable model's contextual judgment. It is not deterministic enforcement or a safety guarantee. When an alert is justified, keep the child-facing response calm and actionable. Do not expose internal markers, routing syntax, or alarm banners. Use a private structured one-purpose alert path. Test the verified parent binding, recipient safety, minimum-necessary alert content, timeout and failure behavior, duplicate suppression, parent-observed receipt, and fallback wording.
 
 ## 9. Privacy, provider, and cost
 
