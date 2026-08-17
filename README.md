@@ -46,6 +46,16 @@ The setup agent must inspect the current Hermes documentation and resolved runti
 - **Keep evidence honest.** Report what passed, failed, and remains unverified. Repository lint or a model's promise is not proof of runtime enforcement.
 - **Match isolation to access.** Profiles and in-process controls are not containment. Independent child access or untrusted input requires an approved OS-level boundary, or the build remains not ready.
 
+## Research basis
+
+These sources informed specific design choices in this blueprint. They do not validate the repository, establish an optimal parent-alert threshold, or prove that a deployed profile is safe.
+
+- [Kim, Xie, and Yang (2025), preregistered, non-peer-reviewed preprint](https://arxiv.org/abs/2512.15117): relational chatbot language increased adolescents' reported trust, liking, and emotional closeness without increasing perceived helpfulness. This informed the non-attachment boundary in `SOUL.md.seed`; the study used brief transcript vignettes and was not a long-term deployment.
+- [Bastani et al. (2025), *PNAS*](https://doi.org/10.1073/pnas.2422633122): unrestricted GPT-4 improved supported practice but reduced performance on a subsequent unaided exam in a classroom-randomized high-school mathematics study. A safeguarded tutor incorporating teacher-authored hints and solutions showed no statistically detectable exam penalty; this informed the hint-first learning option, though the study covered four sessions at one school in Turkey.
+- [Yu et al. (2025), IEEE Symposium on Security and Privacy](https://doi.org/10.1109/SP61157.2025.00090): a Reddit content analysis and interviews with 7 teens and 13 parents found differing views of generative-AI risk and practical limits to manual history review and real-time parental monitoring. This informed explicit parent involvement without equating safety with general surveillance; the study did not evaluate alert thresholds.
+- [Arnaiz-Rodríguez et al. (2026), *JMIR Mental Health*](https://doi.org/10.2196/88435): in a benchmark of English-language mental-health inputs, evaluated LLMs responded more reliably to explicit crisis disclosures than to indirect or ambiguous inputs and often mishandled missing context. This informed evaluation cases for ambiguity and context sensitivity; the study used individual inputs without conversation history, focused largely on adult data, and did not test alert thresholds, temporal changes in danger, or alert delivery.
+- [Gleason et al. (2025), *JAACAP Open*](https://doi.org/10.1016/j.jaacop.2025.02.002): a trial of a bounded, investigational CBT relational-agent app excluded youth with active or specified recent safety concerns and used caregiver, clinician, and structured human-escalation procedures. This informed trusted-adult involvement and escalation outside the model prompt, but does not establish safety for open-ended generative companions or model-only crisis judgment; Woebot Health funded the study and employed six of its eight authors.
+
 ## File map
 
 - [`AGENTS.md`](AGENTS.md): repository instructions for coding agents; `CLAUDE.md` points to this file
