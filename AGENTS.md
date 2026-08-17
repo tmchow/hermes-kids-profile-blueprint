@@ -66,7 +66,7 @@ Run these checks from the repository root before opening or updating a pull requ
 python3 scripts/check_repository.py
 python3 -m py_compile scripts/check_repository.py
 npx --yes markdownlint-cli2 --config .markdownlint-cli2.jsonc '**/*.md' '**/*.seed' '#.git'
-npx --yes cspell@10.0.1 README.md AGENTS.md STYLE.md START-HERE.md DECISIONS.md MEMORY-REVIEW.md EVALS.md MAINTENANCE.md EXAMPLE.md SOUL.md.seed USER.md.seed MEMORY.md.seed scripts/check_repository.py --no-progress --config cspell.json
+npx --yes cspell@10.0.1 README.md AGENTS.md SECURITY.md STYLE.md START-HERE.md DECISIONS.md MEMORY-REVIEW.md EVALS.md MAINTENANCE.md EXAMPLE.md SOUL.md.seed USER.md.seed MEMORY.md.seed scripts/check_repository.py --no-progress --config cspell.json
 git diff --check
 ```
 

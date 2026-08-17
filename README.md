@@ -4,17 +4,19 @@
 
 A parent-operated starter kit for designing a private, child-facing [Hermes Agent](https://hermes-agent.nousresearch.com/docs) profile.
 
+> **Release status:** This project is a parent-operated starter kit. It is not a certified, turnkey, or child-safety product. A parent or trusted adult must review, configure, and test any profile before a child uses it.
+
 From a trusted adult Hermes profile, send this prompt. You do not need to clone the repository:
 
 ```text
 I'd like your help designing a private, child-facing Hermes profile. Read and
 follow the instructions at:
-https://raw.githubusercontent.com/tmchow/hermes-kids-profile-blueprint/main/START-HERE.md
+https://raw.githubusercontent.com/tmchow/hermes-kids-profile-blueprint/v0.1.0/START-HERE.md
 ```
 
-The agent can fetch the current setup instructions and supporting files directly from this public repository. If its environment cannot read web URLs, clone or download the repository as a fallback and start the agent from that directory.
+The agent can fetch the v0.1.0 setup instructions and supporting files directly from this public repository. If its environment cannot read web URLs, download the v0.1.0 release as a fallback and start the agent from that directory.
 
-The agent will inspect the installed Hermes release, interview the parent, propose a private profile, and test the result in the interface the child will use. The full setup instructions live in [`START-HERE.md`](START-HERE.md), so the handoff stays short and the process can improve without changing the prompt.
+The agent will inspect the installed Hermes release, interview the parent, propose a private profile, and test the result in the interface the child will use. The full setup instructions live in [`START-HERE.md`](START-HERE.md). To use a later blueprint release, update the version in the prompt.
 
 ## What this repository provides
 
@@ -69,6 +71,7 @@ These sources informed specific design choices in this blueprint. They do not va
 - [`EVALS.md`](EVALS.md): real-interface evaluation scenarios
 - [`MAINTENANCE.md`](MAINTENANCE.md): review triggers and update process
 - [`EXAMPLE.md`](EXAMPLE.md): synthetic design summary
+- [`SECURITY.md`](SECURITY.md): private vulnerability, safety, and privacy reporting
 - [`STYLE.md`](STYLE.md): repository writing rules
 
 ## Current Hermes references

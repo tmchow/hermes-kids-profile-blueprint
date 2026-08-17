@@ -26,7 +26,7 @@ jobs:
       - name: Check spelling
         run: >-
           npx --yes cspell@10.0.1
-          README.md AGENTS.md STYLE.md START-HERE.md DECISIONS.md MEMORY-REVIEW.md
+          README.md AGENTS.md SECURITY.md STYLE.md START-HERE.md DECISIONS.md MEMORY-REVIEW.md
           EVALS.md MAINTENANCE.md EXAMPLE.md SOUL.md.seed USER.md.seed
           MEMORY.md.seed scripts/check_repository.py
           --no-progress --config cspell.json

@@ -24,6 +24,7 @@ EXPECTED_FILES = {
     "MEMORY-REVIEW.md",
     "MEMORY.md.seed",
     "README.md",
+    "SECURITY.md",
     "SOUL.md.seed",
     "START-HERE.md",
     "STYLE.md",
