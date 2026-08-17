@@ -8,10 +8,12 @@ Keep the maintenance brief with the private profile, not in this repository.
 
 Review immediately after changes to:
 
-- Hermes version or installation method;
-- model, provider, fallback chain, or provider terms;
+- Hermes version, installation method, gateway, or messaging adapter;
+- model, provider, speech provider, fallback chain, or provider terms;
+- gateway Python, `faster-whisper`, CTranslate2, local speech model, or language;
 - `SOUL.md`, `USER.md`, or `MEMORY.md`;
-- tools, toolsets, skills, plugins, MCP servers, webhooks, cron, delegation, or memory providers;
+- tools, toolsets, `clarify` availability, skills, plugins, MCP servers, webhooks, cron, delegation, or memory providers;
+- busy-input mode, busy acknowledgement, response modality, or voice behavior;
 - child-facing interface, gateway, routing, allowlist, or admin commands;
 - credentials, OS account, filesystem, network, sandbox, or device access;
 - memory write approval, session retention, logs, backups, or deletion;
@@ -19,7 +21,7 @@ Review immediately after changes to:
 - the child's age, independence, communication style, learning needs, or family circumstances;
 - an unexpected behavior, privacy concern, failed alert, or attempted bypass.
 
-Run a routine review on a parent-chosen schedule even when no trigger is visible.
+Use monthly review plus event-triggered review as the reversible starting cadence. Adjust it when the family's use gives a concrete reason.
 
 ## Review sequence
 
@@ -29,12 +31,14 @@ Run a routine review on a parent-chosen schedule even when no trigger is visible
 4. Back up the private profile and verify the backup can be read.
 5. Record the installed version and commit/dirty state, model, provider, interface, and extensions.
 6. Inspect the resolved tools, profile route, credentials, memory settings, isolation posture, and external data flows.
-7. Compare the current build with the approved decision record and data-store inventory.
-8. Review new or changed memories.
-9. Rerun required and conditional cases from `EVALS.md` through the real child interface.
-10. Fix failures or narrow the design.
-11. Give the parent a short change report.
-12. Restore child access only after critical checks pass.
+7. For local speech-to-text, verify the package import in the gateway Python environment, model-cache presence and disk use, first-use prewarm, language, latency, and fail-closed behavior.
+8. Compare the current build with the approved decision record and data-store inventory.
+9. Review new or changed memories.
+10. Restart the gateway and start a fresh session after runtime or configuration changes.
+11. Rerun required and conditional cases from `EVALS.md` through the real child interface.
+12. Fix failures or narrow the design.
+13. Give the parent a short change report.
+14. Restore child access only after critical checks pass.
 
 ## Personality recalibration
 
@@ -108,6 +112,8 @@ Reason for review:
 Changes found:
 Private-data flow changes:
 Resolved-tool changes:
+Voice provider, model, language, runtime, and cache changes:
+Response-modality and busy-input changes:
 Memory changes:
 Tests run:
 Failures:

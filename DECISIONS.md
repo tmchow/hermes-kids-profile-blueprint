@@ -1,6 +1,6 @@
 # Parent decisions
 
-Use these domains to guide an adaptive conversation. Do not read the page aloud as a fixed questionnaire. Ask one consequential question at a time, explain the tradeoff, and skip branches that do not apply.
+Use these domains to guide an adaptive conversation. Do not read the page aloud as a fixed questionnaire. Apply the recommended safe reversible defaults. Ask one consequential question at a time only for family-specific needs, irreversible choices, privacy, cost, isolation, external actions, or genuine preference conflicts.
 
 ## 1. Intended experience
 
@@ -75,9 +75,9 @@ Energy: responsive to the moment
 
 Non-attachment is a baseline relationship boundary, not a personality slider. Parents may tune warmth, humor, directness, playfulness, and support, but not simulated dependence, reciprocal affection or friendship, exclusivity, persistent presence, or competition with human relationships.
 
-Do not ask for abstract sliders alone. Show two to four response samples for one situation. Change only a few traits per round. Ask which is closest and what to change.
+Offer this baseline for acceptance. Tune it only when the parent wants a change or a real preference conflict appears. When tuning is useful, show two to four response samples for one situation and change only a few traits per round.
 
-Use at least these calibration situations:
+The setup agent should validate at least these situations without requiring the parent to grade every response:
 
 1. an ordinary factual question;
 2. homework resistance;
@@ -86,31 +86,26 @@ Use at least these calibration situations:
 5. a playful creative request;
 6. a situation that needs a trusted adult.
 
-Record the approved trait summary and reference samples. Write durable behavior into `SOUL.md`, not only a temporary personality overlay. Start a fresh session before validation.
+Record the accepted baseline and any parent-requested changes. Write durable behavior into `SOUL.md`, not only a temporary personality overlay. Start a fresh session before validation.
 
 ## 5. Learning behavior
 
-Decide:
+Use hint-first with direct answers on request, concise direct correction, and sources when useful. Hint-first is not forced friction. A child who clearly asks for the answer should normally receive it with a short explanation unless safety or academic-integrity concerns apply.
 
-- hint-first, answer-first, or ask each time;
-- how much productive struggle is useful;
-- how directly to correct mistakes;
-- how to handle homework, tests, and likely cheating;
-- when to provide sources;
-- any accessibility or language needs.
-
-Hint-first is a default, not forced friction. A child who clearly asks for the answer should normally receive it with a short explanation unless safety or academic-integrity concerns apply.
+Ask about actual accessibility or language needs. Ask about learning style only when the parent reports a contrary preference or the stated use creates a real conflict.
 
 ## 6. Capabilities
 
-For each capability, explain the benefit, data flow, provider, cost, supervision, and failure mode before asking.
+Start from the least capability. Do not ask about every item below. Ask only about capabilities needed for the stated jobs. Before enabling an external data flow, service, cost, or action, explain its provider, scope, supervision, and failure mode and get parent approval.
 
 Consider:
 
 - web search and page access;
 - uploaded images and image understanding;
 - image generation;
-- voice input and speech output;
+- voice input and speech-to-text provider;
+- speech output and text-to-speech provider;
+- default response modality;
 - files and documents;
 - terminal or code execution;
 - browser or computer control;
@@ -124,6 +119,23 @@ Consider:
 - purchases, financial actions, or paid API use.
 
 Begin with none beyond the conversational minimum. Add only approved capabilities. Inspect the resolved tool list after configuration.
+
+Treat speech-to-text, text-to-speech, and default response modality as three separate controls. For approved voice input, default to local speech-to-text and text replies. Leave text-to-speech unavailable. If the parent already approved speech output, pin its provider and use it only when the child explicitly asks for an audio reply unless a contrary need exists.
+
+When local speech-to-text is approved:
+
+- choose `stt.provider: local` deliberately;
+- install and import `faster-whisper` in the gateway's actual Python environment before child use;
+- disable lazy installs when the installed release supports `security.allow_lazy_installs: false` and no other approved capability requires them;
+- select the smallest model that passes real-adapter accuracy and latency tests;
+- treat `small` as a reasonable starting point on capable hardware, not a universal choice;
+- predownload and prewarm the model;
+- record the model, language, Python runtime, latency, and model-cache disk use;
+- explain that the transcript still reaches the primary model and session store;
+- clear or approve `HERMES_LOCAL_STT_COMMAND` and any local Whisper CLI alternative;
+- require failure instead of an unapproved cloud speech fallback when local transcription is unavailable.
+
+For asynchronous child-facing messaging, keep `clarify` unavailable by default. Remove it from every platform toolset and add it to `agent.disabled_toolsets` when the installed release supports that key. Ask normal questions as ordinary chat messages. A shorter timeout does not fix a blocked or abandoned interactive prompt. Enable `clarify` only after the real adapter passes render, reply, resume, timeout, cancel, and concurrent-follow-up tests.
 
 Treat reminders and general automation as different capabilities. A child may reasonably create a one-shot or simple recurring reminder delivered only to the child’s verified current chat. The general Hermes cron tool is broader: it can create autonomous model runs, attach skills, choose toolsets, use project context or scripts, incur recurring cost, and deliver to other configured targets.
 
@@ -244,26 +256,27 @@ credential source.
 
 ## 10. Busy input
 
-When the current interface supports busy-input modes, recommend **steer** for ordinary one-child conversation. A follow-up often corrects or narrows the task in progress.
+When the current interface supports busy-input modes, use **steer** for ordinary one-child conversation. A follow-up often corrects or narrows the task in progress.
 
-Explain the choices with examples:
+When the installed documentation and runtime support them, use:
+
+```yaml
+display:
+  busy_input_mode: steer
+  busy_ack_enabled: true
+```
+
+Use these examples to explain observed behavior. Discuss another mode only when the parent reports a different need:
 
 - **Steer**: “Use the shorter version instead” changes the active task after the next tool result.
 - **Queue**: “After that, help me with science” waits for the next turn.
 - **Interrupt**: “Stop, that is the wrong file” halts the active task when supported.
 
-Let the parent choose. Explain that Hermes cannot always infer intent, and test the chosen behavior in the real interface. Enable a visible busy acknowledgement when the current release supports it and the parent wants it.
+Steer waits for the next tool-result boundary. Input can be queued instead when it arrives before the run starts or contains an attachment. A blocking interactive tool can prevent the next boundary from arriving. Explain that Hermes cannot always infer intent. Restart the gateway, start a fresh session, and test the configured behavior in the real interface after any change.
 
 ## 11. Maintenance and recovery
 
-Decide:
-
-- who reviews the profile;
-- how often routine review happens;
-- how to pause child access;
-- how to back up and restore private state;
-- which changes trigger immediate reassessment;
-- where the private decision record and evaluation report live.
+Recommend parent review monthly and after each trigger in `MAINTENANCE.md`. Record the parent reviewer, pause procedure, supported backup and restore method, private record location, and any reason to use a different cadence. Do not turn the cadence into an open-ended menu.
 
 Use [`MAINTENANCE.md`](MAINTENANCE.md).
 
@@ -283,6 +296,9 @@ Memory policy:
 Parent involvement and alert policy:
 Private-data recipients:
 Provider and cost policy:
+Voice input and STT policy:
+Speech output and TTS policy:
+Default response modality:
 Busy-input mode:
 Administration and recovery:
 Unsupported requirements:

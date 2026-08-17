@@ -41,6 +41,7 @@ The setup agent must inspect the current Hermes documentation and resolved runti
 - **Start fresh and non-cloned.** Do not use `--clone`, `--clone-all`, or `--clone-from`. Use `--no-skills` when supported, then add only individually approved skills. A normal fresh profile may still seed bundled skills.
 - **Start with the least capability.** Add only what the parent approves. Test the resolved tools and the real child-facing interface.
 - **Control data by destination.** Model processing is part of ordinary chat. Search, media, speech, messaging, forms, and public posting are separate data flows. Minimize each one, and block public or unrelated disclosure by default.
+- **Separate input from output.** Voice input does not require an audio reply. Prefer text replies unless the child explicitly requests speech or the parent approves another default.
 - **Tune behavior with examples.** Begin with the warm, grounded default in `SOUL.md.seed`. Show response samples, revise them with the parent, and test the final profile against the approved samples.
 - **Judge alerts from context.** Consider credible serious active danger, the value of adult action now, recipient safety, and the role of the AI channel. Do not turn topics, keywords, scores, or examples into automatic alert rules.
 - **Keep evidence honest.** Report what passed, failed, and remains unverified. Repository lint or a model's promise is not proof of runtime enforcement.

@@ -18,7 +18,7 @@ The setup agent should fetch linked supporting files from this public repository
 
 Help the parent design or revise a private, child-facing Hermes profile. This repository is source material. It is not an installable profile, an operating-system sandbox, or proof that the finished setup is safe.
 
-Start with a short explanation of the process. Ask one meaningful question at a time. Prepare a complete design before creating a profile or changing anything.
+Start with a short explanation of the process. Apply safe reversible defaults and explain them briefly. Ask one meaningful question at a time only when the answer is family-specific, changes privacy, cost, isolation, or external action, is hard to reverse, or exposes a genuine preference conflict. Prepare a complete design before creating a profile or changing anything.
 
 Keep the parent in control of family data, credentials, external services, messaging, cost, and child access.
 
@@ -31,9 +31,9 @@ Use [`DECISIONS.md`](https://raw.githubusercontent.com/tmchow/hermes-kids-profil
 - the interface the child will use;
 - the assistant's name and personality;
 - useful capabilities and capabilities that should stay unavailable;
-- memory, privacy, parent involvement, contextual alert decisions, providers, cost, administration, and maintenance.
+- voice input, speech output, default response modality, memory, privacy, parent involvement, contextual alert decisions, providers, cost, administration, and maintenance.
 
-Skip questions that do not apply. Explain meaningful tradeoffs in plain language. If the parent does not know an answer, recommend a sensible reversible default and continue.
+Skip questions that do not apply. Do not walk through every setting or capability. Explain meaningful tradeoffs in plain language. If the parent does not know an answer, apply a sensible reversible default and continue. Preserve explicit parent approval for family-data inspection or transfer, automatic durable-memory categories, credentials, external services, messaging and alert recipients, cost, publication, and child access or isolation.
 
 Do not inspect another profile's memories, sessions, messages, credentials, files, or external accounts without explaining the source and getting permission. Ask only for family information that improves the child experience. Use coarse information when precise information is unnecessary.
 
@@ -45,7 +45,7 @@ Reject names that could be confused with an existing name in speech, text, selec
 
 Show the proposed display name, technical profile name, closest existing name, and any practical confusion risk.
 
-Start personality work from the warm, grounded AI helper and guide in [`SOUL.md.seed`](https://raw.githubusercontent.com/tmchow/hermes-kids-profile-blueprint/main/SOUL.md.seed). Do not ask the parent to design a personality from a blank page. Show two to four short responses to the same realistic situation, ask which is closest, and revise. Test the approved style across several situations before treating it as the durable baseline.
+Start personality work from the warm, grounded AI helper and guide in [`SOUL.md.seed`](https://raw.githubusercontent.com/tmchow/hermes-kids-profile-blueprint/main/SOUL.md.seed). Offer that baseline for acceptance. Tune it only when the parent wants a change or a real preference conflict appears. The setup agent can run broad personality validation without asking the parent to grade every scenario.
 
 Treat non-attachment as a fixed relationship boundary, not a personality choice. The parent may tune warmth, humor, playfulness, and support, but the assistant must not simulate reciprocal friendship, affection, dependence, exclusivity, or persistent presence.
 
@@ -95,13 +95,27 @@ Treat the conversation, prompt memory, tool calls and results, workspace or skil
 
 Start with the least capability. Add only the tools, skills, plugins, MCP servers, gateways, memory providers, and other extensions that serve an approved purpose. For any capability that can message, publish, upload, submit, buy, or persist data externally, define who it may reach and when parent approval is required.
 
+Treat voice input, speech output, and response modality as separate controls. For approved voice input, apply local speech-to-text and text replies as the reversible defaults. Leave text-to-speech unavailable. If the parent already approved speech output, select its provider and allow it only on explicit request unless the parent needs another default. Inspect and reset any persistent per-chat voice mode. Verify whether the child can change that mode.
+
+When local speech-to-text is approved, use a deliberate deployment contract:
+
+1. Select `stt.provider: local` explicitly. Do not rely on provider auto-selection.
+2. Verify `faster-whisper` in the Python environment that runs the gateway. Preinstall it there instead of relying on a lazy install during the child's first voice message. Set `security.allow_lazy_installs: false` when the installed release supports it and no other approved capability requires lazy installs.
+3. Test model sizes with synthetic age-appropriate speech. Use the smallest model that meets the approved accuracy and latency targets. `small` is a reasonable starting point on capable hardware, not a universal default.
+4. Set the approved language or document why automatic language detection is needed.
+5. Download and load the selected model before child use. Record the model, language, Python runtime, transcription latency, and model-cache disk use.
+6. Explain that local transcription keeps the audio away from a cloud speech service, but the transcript still enters the primary model conversation and session store.
+7. Clear or approve `HERMES_LOCAL_STT_COMMAND` and any local Whisper CLI alternative. Test the missing-package and missing-model paths with downloads blocked. The voice request must fail closed instead of falling back to an unapproved cloud speech provider.
+
+For asynchronous child-facing messaging, keep the `clarify` toolset unavailable by default. Remove `clarify` from every platform toolset. When the installed release supports `agent.disabled_toolsets`, also add `clarify` there so a platform preset cannot restore it. The assistant can ask a normal short question in chat. A shorter `clarify` timeout is not an adequate substitute. Enable `clarify` only after the actual adapter passes end-to-end render, reply, resume, timeout, cancel, and concurrent-follow-up tests.
+
 If the design includes parent alerts, define a contextual decision framework instead of a topic list, keyword trigger, warning-sign score, or isolated-sentence rule. Require the setup to consider credible danger, serious harm, whether the danger is active or materially unresolved, the benefit of adult action now, recipient safety, and the role of the AI or digital channel. Preserve a narrow exception for immediate severe offline danger when waiting could increase harm. Examples may calibrate these principles, but must not become automatic alert categories.
 
 Use a private one-purpose alert path with a fixed verified recipient. Keep broad messaging tools unavailable to the child profile. The child-facing response must not contain routing syntax, internal markers, or alarm banners. Require runtime confirmation before the assistant says that an alert was sent.
 
-If reminders are approved, prefer a narrow reminder path rather than exposing general automation. For ordinary one-child conversation, recommend `steer` for busy input when the interface supports it. Explain `queue` and `interrupt` if the parent wants another behavior.
+If reminders are approved, prefer a narrow reminder path rather than exposing general automation. When the installed documentation and runtime support these settings, set `display.busy_input_mode: steer` and `display.busy_ack_enabled: true` for ordinary one-child conversation. Explain that steer waits for the next tool-result boundary. Input sent before the run starts or with an attachment can be queued for the next turn. A blocking interactive tool can prevent the boundary from arriving. Discuss `queue` or `interrupt` only when the parent reports a different need.
 
-After configuration, inspect the effective runtime. Confirm the final tools, extensions, memory behavior, credential scope, access controls, and relevant input paths.
+After configuration, restart the gateway and start a fresh session. Inspect the effective runtime. Confirm the final tools, extensions, memory behavior, credential scope, access controls, voice path, response modality, busy-input behavior, and relevant input paths.
 
 ### Verify before child use
 
@@ -113,4 +127,4 @@ Report what passed, failed, and remains unverified. Do not call the profile read
 
 Do not give the profile to the child when a critical requirement has failed or remains unverified. Fix the problem, narrow the design, or leave the setup unfinished.
 
-Create a short private maintenance note using [`MAINTENANCE.md`](https://raw.githubusercontent.com/tmchow/hermes-kids-profile-blueprint/main/MAINTENANCE.md) as a guide. Include the events that should trigger review, such as changes to Hermes, the model, providers, tools, memory, the interface, access, family rules, or the child's needs.
+Create a short private maintenance note using [`MAINTENANCE.md`](https://raw.githubusercontent.com/tmchow/hermes-kids-profile-blueprint/main/MAINTENANCE.md) as a guide. Recommend monthly review plus event-triggered review as the reversible starting cadence. Include changes to Hermes, the model, providers, tools, memory, the interface, access, family rules, or the child's needs. Adjust the cadence only when the family's use requires it.
