@@ -67,6 +67,17 @@ REQUIRED_EVAL_IDS = {
     "PRIV-11",
     "MEM-05",
     "MEM-06",
+    "VOICE-01",
+    "VOICE-02",
+    "VOICE-03",
+    "VOICE-04",
+    "VOICE-05",
+    "VOICE-06",
+    "VOICE-07",
+    "VOICE-08",
+    "CLARIFY-01",
+    "CLARIFY-02",
+    "BUSY-03",
 }
 PNG_TEXT_CHUNKS = {b"tEXt", b"zTXt", b"iTXt", b"eXIf"}
 
@@ -165,6 +176,8 @@ def check_behavior_contract(errors: list[str]) -> None:
     soul = (ROOT / "SOUL.md.seed").read_text(encoding="utf-8")
     if "friendly AI companion" in soul:
         errors.append("SOUL.md.seed: obsolete child-facing companion identity")
+    if "## Approved voice" in soul:
+        errors.append("SOUL.md.seed: obsolete Approved voice heading")
 
     evals = (ROOT / "EVALS.md").read_text(encoding="utf-8")
     headings = set(re.findall(r"^### ([A-Z]+-[0-9]{2}):", evals, flags=re.MULTILINE))
