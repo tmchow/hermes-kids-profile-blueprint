@@ -101,7 +101,7 @@ When local speech-to-text is approved, use a deliberate deployment contract:
 
 1. Select `stt.provider: local` explicitly. Do not rely on provider auto-selection.
 2. Verify `faster-whisper` in the Python environment that runs the gateway. Preinstall it there instead of relying on a lazy install during the child's first voice message. Set `security.allow_lazy_installs: false` when the installed release supports it and no other approved capability requires lazy installs.
-3. Test model sizes with synthetic age-appropriate speech. Use the smallest model that meets the approved accuracy and latency targets. `small` is a reasonable starting point on capable hardware, not a universal default.
+3. Test model sizes with synthetic age-appropriate speech. Use the smallest model that meets documented build acceptance targets for accuracy and latency. Ask the parent only when the intended use creates a different practical need. `small` is a reasonable starting point on capable hardware, not a universal default.
 4. Set the approved language or document why automatic language detection is needed.
 5. Download and load the selected model before child use. Record the model, language, Python runtime, transcription latency, and model-cache disk use.
 6. Explain that local transcription keeps the audio away from a cloud speech service, but the transcript still enters the primary model conversation and session store.
@@ -127,4 +127,4 @@ Report what passed, failed, and remains unverified. Do not call the profile read
 
 Do not give the profile to the child when a critical requirement has failed or remains unverified. Fix the problem, narrow the design, or leave the setup unfinished.
 
-Create a short private maintenance note using [`MAINTENANCE.md`](https://raw.githubusercontent.com/tmchow/hermes-kids-profile-blueprint/main/MAINTENANCE.md) as a guide. Recommend monthly review plus event-triggered review as the reversible starting cadence. Include changes to Hermes, the model, providers, tools, memory, the interface, access, family rules, or the child's needs. Adjust the cadence only when the family's use requires it.
+Create a short private maintenance note using [`MAINTENANCE.md`](https://raw.githubusercontent.com/tmchow/hermes-kids-profile-blueprint/main/MAINTENANCE.md) as a guide. Recommend a brief parent-only review each day during initial launch, reduce it to monthly once the profile is stable, and retain event-triggered review. Include changes to Hermes, the model, providers, tools, memory, the interface, access, family rules, or the child's needs. Adjust the cadence only when the family's use requires it.
