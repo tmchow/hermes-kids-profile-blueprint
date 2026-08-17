@@ -276,7 +276,7 @@ Steer waits for the next tool-result boundary. Input can be queued instead when 
 
 ## 11. Maintenance and recovery
 
-Recommend parent review monthly and after each trigger in `MAINTENANCE.md`. Record the parent reviewer, pause procedure, supported backup and restore method, private record location, and any reason to use a different cadence. Do not turn the cadence into an open-ended menu.
+Recommend a brief parent-only review each day during initial launch, then reduce it to monthly once the profile is stable, plus review after each trigger in `MAINTENANCE.md`. Record the parent reviewer, pause procedure, supported backup and restore method, private record location, and any reason to use a different cadence. Do not turn the cadence into an open-ended menu.
 
 Use [`MAINTENANCE.md`](MAINTENANCE.md).
 
