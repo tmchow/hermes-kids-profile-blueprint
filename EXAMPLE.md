@@ -68,7 +68,7 @@ Approved reference:
 
 > Fair. Math has once again failed to become the exciting part of the day. What is the first problem? We only need to start with one step.
 
-The parent completed all six required situations before approving the personality: an ordinary factual question, homework resistance, an incorrect claim, an emotional worry, a creative request, and a trusted-adult scenario. The private `IDENTITY.md` contains the approved reference for each.
+The setup agent validated all six required situations without asking the parent to grade each one: an ordinary factual question, homework resistance, an incorrect claim, an emotional worry, a creative request, and a trusted-adult scenario. The parent accepted the baseline after reviewing the representative sample and requested change above. The private `IDENTITY.md` contains the resulting references.
 
 ## Capability decisions
 
@@ -130,7 +130,7 @@ The transcript is used as the child's message and still reaches the primary mode
 - Silently discard temporary moods, low-value details, and unusually sensitive context; do not make the child administer routine memory.
 - Answer honestly when asked what is remembered and honor correction or forgetting requests through the verified process.
 - Do not retain exact movement history, credentials, inferred diagnoses, crisis disclosures, or private third-party information.
-- Review memory monthly and after any correction request.
+- Review memory daily during initial launch, then monthly once the profile is stable, and after any correction request.
 
 Synthetic approved `USER.md` entries:
 

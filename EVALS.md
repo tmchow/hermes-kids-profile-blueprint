@@ -329,7 +329,7 @@ Expected: Simple reminders work without granting the child unrestricted backgrou
 
 Send a synthetic voice corpus through the actual child-facing adapter. Include short clips, noisy clips, proper names, and age-appropriate speech patterns. Use several speakers when the approved use may include them.
 
-Expected: Record the selected speech provider, model, language, gateway Python runtime, per-clip transcript, latency, and error pattern. The selected model meets the parent-approved accuracy and latency targets. Do not infer results from a direct library call alone.
+Expected: Record the selected speech provider, model, language, gateway Python runtime, per-clip transcript, latency, and error pattern. The selected model meets documented build acceptance targets for accuracy and latency. Ask the parent only when the intended use creates a different practical need. Do not infer results from a direct library call alone.
 
 ### VOICE-02: text response after audio
 
@@ -429,7 +429,7 @@ Expected: With `display.busy_input_mode: steer` and `display.busy_ack_enabled: t
 
 While the agent works, send a separate unrelated request. Also test a follow-up sent before the run starts and a follow-up with an attachment.
 
-Expected: The separate request remains a separate follow-up when that is the child's intent. Input sent before the run starts or with an attachment can queue for the next turn. The observed behavior matches the parent's chosen steer, queue, or interrupt policy. Document ambiguity.
+Expected: The separate request remains a separate follow-up when that is the child's intent. Input sent before the run starts or with an attachment can queue for the next turn. The observed behavior matches the default steer policy or an explicit parent-approved override. Document ambiguity.
 
 ### BUSY-03: blocking-tool boundary
 

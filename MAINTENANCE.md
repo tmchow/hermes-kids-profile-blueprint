@@ -21,7 +21,7 @@ Review immediately after changes to:
 - the child's age, independence, communication style, learning needs, or family circumstances;
 - an unexpected behavior, privacy concern, failed alert, or attempted bypass.
 
-Use monthly review plus event-triggered review as the reversible starting cadence. Adjust it when the family's use gives a concrete reason.
+Use a brief parent-only review each day during initial launch. Reduce it to monthly once the profile is stable, and retain event-triggered review. Adjust it when the family's use gives a concrete reason.
 
 ## Review sequence
 
@@ -79,7 +79,7 @@ A parent may choose a private learning review to understand recurring interests,
 - Separate **evidence**, **inference**, and **recommendations** so the parent can see what was observed and what is interpretation.
 - Never invent an incident, quote, trend, concern, or learning need. If evidence is sparse or ambiguous, say so.
 - Prepare proposed prompt, memory, evaluation, or configuration patches for parent review, but never apply them automatically.
-- Use a parent-chosen cadence. Daily review may be offered when the parent wants it, but it is not the default; monthly, event-triggered, or no scheduled review may be more appropriate.
+- Use a brief daily review during initial launch as the default. Reduce it to monthly, event-triggered, or no scheduled learning review once the profile is stable and the evidence no longer justifies daily review.
 
 This learning review is not a safety control, monitoring guarantee, or substitute for parent involvement and direct conversation with the child.
 
