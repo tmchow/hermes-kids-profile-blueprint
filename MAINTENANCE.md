@@ -45,6 +45,8 @@ Check the parts that apply:
 
 Use current Hermes documentation and the installed runtime. Do not rely on a configuration key that the installed release does not support.
 
+After a Hermes update, use the current configuration check and migration commands when they are available, then rerun the profile's practical tests. A custom audit script may need Hermes's own Python environment instead of the computer's default Python. Verify the commands against the installed release before running them.
+
 ## Personality recalibration
 
 Recalibrate when the child finds the assistant babyish, annoying, too formal, too jokey, or unhelpful, or when the model or child's needs change.

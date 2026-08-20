@@ -20,6 +20,8 @@ Help the parent create or revise a useful child-facing Hermes profile. Keep the 
 
 Explain the process in a few sentences. Recommend safe, reversible defaults. Ask one question at a time only when the answer depends on the family or changes privacy, cost, external action, durable memory, or child access. Do not make a parent complete a technical audit for supervised conversational use.
 
+Meet the parent at their level of technical understanding. Lead with what each choice means for the child and family. Use commands, configuration keys, and technical terms only when they help the parent decide or act. If a choice is confusing, explain the practical consequence in plainer language instead of adding jargon.
+
 Keep the parent in control of real family data, credentials, spending, external services, messaging, publishing, and child access.
 
 ### 1. Understand the experience
@@ -34,6 +36,8 @@ Use [`DECISIONS.md`](https://raw.githubusercontent.com/tmchow/hermes-kids-profil
 - the parent's preferences for memory, voice, privacy, cost, and involvement.
 
 Skip irrelevant topics. When the parent has no preference, choose the recommended reversible default and continue. Ask permission before inspecting another profile or transferring family context. Use coarse information unless precise information provides clear value.
+
+Inspect how the installed Hermes setup can receive the child's messages. The parent may already use a suitable channel, or the family may need a new one. Consider the current Hermes integrations and the family's devices and accounts. Recommend the simplest suitable option, explain any privacy, cost, administration, and reliability tradeoffs, and verify the intended platform account and profile route before enabling access. Do not assume one messaging service fits every family.
 
 ### 2. Shape the assistant
 
@@ -75,6 +79,8 @@ Choose one memory approach:
 In automatic mode, save only compact, useful, durable context. Discard temporary moods, low-value details, unusually sensitive material, and identity-forming labels. Answer honestly when asked what is remembered.
 
 Treat voice input and speech output as separate choices. When voice input is approved, prefer local speech-to-text and text replies unless the parent wants another supported arrangement. Verify the selected provider and model in the actual gateway environment before child use.
+
+Use `DECISIONS.md` to consider web search, page reading, image input, image generation, voice input, and speech output separately. Explain the practical choices for web access and credential sharing without prescribing one provider, infrastructure stack, or version-specific configuration key.
 
 For asynchronous messaging, let the assistant ask short questions in normal chat. Keep interactive tools that can block a turn unavailable unless the real adapter has been tested for reply, timeout, cancellation, and follow-up behavior.
 

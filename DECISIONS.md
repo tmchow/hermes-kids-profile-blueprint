@@ -52,9 +52,11 @@ Ask about language, accessibility, or learning needs only when they affect the i
 
 Begin with conversation. Ask about other capabilities only when they support a stated job:
 
-- web search;
-- image input or generation;
-- voice input or speech output;
+- web search and reading pages;
+- accepting and understanding images;
+- generating images;
+- accepting voice input;
+- responding with voice;
 - files and documents;
 - reminders;
 - code execution;
@@ -64,6 +66,16 @@ Begin with conversation. Ask about other capabilities only when they support a s
 - purchases or paid API use.
 
 For each added capability, record its purpose, provider, data sent, cost, recipient or destination, supervision, and parent approval needs.
+
+Do not assume related capabilities come together. A profile may accept voice and reply only in text. It may understand an uploaded image without being able to generate one.
+
+For web access, explain three broad choices:
+
+1. no web access, which is the safest and simplest option;
+2. ordinary web tools with profile guidance, which are easier to set up but rely more on model behavior and any provider safeguards;
+3. a more controlled search and page-reading setup, which can provide stronger filtering but needs more configuration and testing.
+
+Inspect the tools and services already available to the parent. Recommend the least complex option that meets the family's expectations. Do not require a particular search or page-reading provider.
 
 **Recommended defaults:**
 
@@ -108,6 +120,8 @@ When an alert route exists, judge the full context. Consider credible serious da
 ## 8. Privacy, providers, and cost
 
 Explain which providers receive conversation text, memory, attachments, transcripts, tool calls, or generated media. Prefer coarse context when precise family details are unnecessary.
+
+Check which credentials the child profile can use, including any fallback to credentials from the parent or host setup. Explain what that means in practical terms, such as sharing an account, quota, billing, or access to other configured services. If the parent wants separation, verify that the installed setup enforces it. Separate profile files alone do not prove credential separation.
 
 Keep these actions under parent control:
 
