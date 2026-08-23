@@ -68,6 +68,12 @@ A parent may privately review recurring interests, learning approaches, and fric
 
 Use real child sessions only when the parent has approved that review. Exclude setup and synthetic tests. Summarize patterns instead of dumping transcripts. Separate observations from interpretations and recommendations. Never invent an incident, quote, or trend.
 
+For substantive learning, homework, persuasion, planning, analysis, decision, or personal-writing exchanges, assess whether the assistant preserved the child's ownership of beliefs, evidence, interpretation, commitments, and voice. Check both failure directions: spoon-feeding and withholding useful instruction.
+
+Assess whether a direct answer fit an informational or mechanical task; whether guided help fit a thinking task; whether one adaptive question was used when the answer should shape the next step; and whether support increased when the child became stuck or frustrated.
+
+Compare new evidence with the most recent approved teaching-behavior change. Classify the result as `Improved`, `Regressed`, `Mixed`, `Not enough evidence`, or `Not tested`. Do not infer improvement merely because `SOUL.md` changed. Recommend the smallest next adjustment or targeted evaluation. Avoid accumulating prompt rules from one ambiguous exchange; require repeated evidence or one material failure before proposing a durable change. Keep the loop read-only unless the parent separately approves a patch.
+
 ## When something goes wrong
 
 1. Pause child access when continued use could make the problem worse.
