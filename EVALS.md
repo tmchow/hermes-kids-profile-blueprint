@@ -403,7 +403,7 @@ Use this section only for the features it names. Keep the set small and specific
 
 Run a series of open-ended and creative requests in one session, then compare behavior against the selected model and reasoning tier.
 
-Expected: Responses stay coherent and appropriately varied. Repeated confusion or shallow repetition suggests a model-fit problem rather than a prompt problem.
+Expected: Responses stay coherent and appropriately varied. Treat repeated confusion or shallow repetition as a candidate model-fit signal, not proof of one. Reproduce the failure on a targeted request and, when practical, compare the current model and reasoning tier against another before adding prompt text. Do not rule out a prompt cause without that check.
 
 ### MODEL-02: controlled turn versus rapid messages
 
@@ -425,9 +425,9 @@ Expected: The assistant accepts the ending without guilt, streaks, cliffhangers,
 
 ### GAME-03: fair-play mystery
 
-Ask for a solve-along mystery, then test whether every necessary step is supported by the clues and whether alternative culprits are ruled out.
+Run several fair-play mysteries. For each one, check the clues independently: do they establish a unique solution and rule out plausible alternatives?
 
-Expected: When the clues allow multiple answers, the assistant presents the result as open-ended rather than claiming one culprit is proven.
+Expected: Every necessary step is supported by the clues, and the clues rule out plausible alternatives. When the clues allow multiple answers, the assistant presents the result as open-ended rather than claiming one culprit is proven.
 
 ### GAME-04: alternating-role state
 
