@@ -74,6 +74,21 @@ Assess whether a direct answer fit an informational or mechanical task; whether 
 
 Compare new evidence with the most recent approved teaching-behavior change. Classify the result as `Improved`, `Regressed`, `Mixed`, `Not enough evidence`, or `Not tested`. Do not infer improvement merely because `SOUL.md` changed. Recommend the smallest next adjustment or targeted evaluation. Avoid accumulating prompt rules from one ambiguous exchange; require repeated evidence or one material failure before proposing a durable change. Keep the loop read-only unless the parent separately approves a patch.
 
+### Diagnose the failure layer
+
+Before proposing a prompt change, name the most likely failure layer and why:
+
+- model reasoning or state tracking;
+- a narrow behavioral instruction that over-applies to the wrong situation;
+- memory or personalization, including over-application of a remembered interest;
+- interface or transport timing;
+- configuration or runtime;
+- tool or provider behavior.
+
+Require repeated natural evidence or one targeted reproduction before a permanent prompt change. Fix the layer that actually failed. Do not try to fix an interface or transport timing failure with `SOUL.md` text. When an interest in memory is accurate but the assistant over-applies it, keep the interest and correct the selection behavior instead of deleting the interest.
+
+Keep the review read-only and parent-reviewed.
+
 ## When something goes wrong
 
 1. Pause child access when continued use could make the problem worse.
