@@ -55,6 +55,7 @@ Before changing anything, summarize:
 - the name and personality;
 - approved capabilities and capabilities that will remain unavailable;
 - the memory and voice choices;
+- the selected model and reasoning tier;
 - parent involvement, cost, and external data flows;
 - the files and configuration you propose to create or change;
 - the short test plan;

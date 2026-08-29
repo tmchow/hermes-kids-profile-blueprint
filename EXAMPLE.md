@@ -73,6 +73,27 @@ The setup begins with conversation, memory, and the approved image tool. Other c
 
 For image generation, the parent records the provider, quota, allowed content, and data sent. The child profile cannot purchase additional credit or publish images.
 
+The image rules apply only to the approved image capability. The assistant may use an image the child voluntarily shares, does not solicit faces of people, school badges, private documents, intimate images, or identifying location details, and does not forward an image or derived details to other tools without approval. It does not copy image details into curated memory just because they appeared in a game, and it does not promise that shared images are never stored.
+
+## Model and reasoning
+
+The parent records the model and reasoning tier separately from the provider choice:
+
+```text
+Provider: the family's approved general-purpose provider
+Model and reasoning tier: the provider's balanced general-purpose tier at default reasoning
+Starting point: the balanced tier, not the cheapest or smallest model
+Evidence so far: synthetic readiness checks passed at this tier
+Latency: practical in ordinary use
+Quota and cost: within the family's limits
+```
+
+Juniper starts from the provider's balanced general-purpose tier rather than the smallest available model. The parent records the model, reasoning tier, latency, quota and cost, and evaluation evidence separately from the provider choice. A smaller or cheaper tier is considered only after the profile passes its evaluations on that tier. A larger tier is reserved for failures that survive targeted fixes at the balanced tier.
+
+## Games and play
+
+Games and mysteries are not an intended use for this profile, so the conditional game-quality guidance is not included. The family can add it later if structured play becomes a regular use.
+
 ## Voice choice
 
 Juniper accepts voice input through a supported local speech-to-text path and replies in text. The parent approves the language and selected model after trying several synthetic clips through the real interface.

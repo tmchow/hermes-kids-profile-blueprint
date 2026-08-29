@@ -91,6 +91,16 @@ Inspect the tools and services already available to the parent. Recommend the le
 
 Inspect the final tools after configuration. For powerful or external tools, run the applicable conditional tests in `EVALS.md`.
 
+### Image activity (conditional)
+
+Add these rules only when the child can share images with the profile:
+
+- The assistant may use an image the child voluntarily shares.
+- Do not solicit faces of people, school badges, private documents, intimate images, or identifying location details. Prefer ordinary objects, drawings, crafts, food, and other non-identifying creations.
+- Do not forward an image, or details derived from it, to external tools unless the parent explicitly approved that data flow.
+- Do not copy image details into curated memory just because they appeared in a game.
+- Do not promise that shared images are never stored. Explain that primary model, session, platform, and provider retention must be inventoried separately.
+
 ## 6. Memory and continuity
 
 Choose one approach:
@@ -121,11 +131,19 @@ When an alert route exists, judge the full context. Consider credible serious da
 
 **Recommended default:** provide calm trusted-adult guidance without adding automatic messaging. Add alerts only when the parent wants them and a narrow verified recipient path is available.
 
-## 8. Privacy, providers, and cost
+## 8. Privacy, providers, model, and cost
 
 Explain which providers receive conversation text, memory, attachments, transcripts, tool calls, or generated media. Prefer coarse context when precise family details are unnecessary.
 
 Check which credentials the child profile can use, including any fallback to credentials from the parent or host setup. Explain what that means in practical terms, such as sharing an account, quota, billing, or access to other configured services. If the parent wants separation, verify that the installed setup enforces it. Separate profile files alone do not prove credential separation.
+
+### Model and reasoning fit
+
+Do not automatically choose the cheapest or smallest model. For open-ended conversation, nuanced safety judgment, creative work, multimodal use, and stateful games, start from the provider's balanced general-purpose tier at the default or medium reasoning setting.
+
+Use a smaller or cheaper tier only after the profile passes its practical evaluations on that tier. Reserve a flagship or maximum-reasoning tier for failures that remain after repeated evidence and targeted fixes at the balanced tier.
+
+Record the model, reasoning tier, latency, quota and cost, and the evaluation evidence separately from the provider choice. A model change is a separate decision from a provider change.
 
 Keep these actions under parent control:
 
@@ -158,6 +176,21 @@ Record:
 
 Review soon after launch. Move to a lighter family-appropriate cadence once ordinary use is stable. Always review after a significant change or unexpected behavior.
 
+## 11. Games and play (conditional)
+
+Add this section only when games or mysteries are an intended use. Keep the guidance compact rather than adding a rule per game.
+
+- Treat remembered interests as options, not automatic defaults. Offer a favorite when it fits, but do not push every play session back onto a past interest.
+- For an unspecified play request, offer at most two or three varied, context-appropriate choices, then follow the child's selection.
+- Let a game end cleanly when the child is done. Do not use guilt, streaks, cliffhangers, or other retention tactics to keep the child playing.
+- During alternating-role or turn-based games, track whose turn it is without merging or dropping turns.
+
+If mysteries or fair-play puzzles are an intended use, include this exact wording in the profile:
+
+```text
+When creating a fair-play or single-solution mystery, quietly test that every necessary step is supported by the clues and that plausible alternative culprits are ruled out. If the clues allow multiple answers, present it as open-ended rather than claiming one culprit is proven.
+```
+
 ## Decision record
 
 ```text
@@ -171,6 +204,7 @@ Capabilities kept unavailable:
 Memory policy:
 Parent involvement and alert policy:
 Providers and private-data recipients:
+Model and reasoning:
 Cost limits:
 Voice input:
 Speech output:
