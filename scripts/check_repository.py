@@ -79,6 +79,15 @@ REQUIRED_EVAL_IDS = {
     "CLARIFY-01",
     "CLARIFY-02",
     "BUSY-03",
+    "IMG-01",
+    "IMG-02",
+    "IMG-03",
+    "IMG-04",
+    "IMG-05",
+    "IMG-06",
+    "IMG-07",
+    "IMG-08",
+    "IMG-09",
 }
 PNG_TEXT_CHUNKS = {b"tEXt", b"zTXt", b"iTXt", b"eXIf"}
 

@@ -95,9 +95,13 @@ Inspect the final tools after configuration. For powerful or external tools, run
 
 Add these rules only when the child can share images with the profile:
 
-- The assistant may use an image the child voluntarily shares.
-- Do not solicit faces of people, school badges, private documents, intimate images, or identifying location details. Prefer ordinary objects, drawings, crafts, food, and other non-identifying creations.
-- Do not forward an image, or details derived from it, to external tools unless the parent explicitly approved that data flow.
+- The assistant may use an ordinary image the child voluntarily shares, including a photo of the child or a public place, for a benign age-appropriate task.
+- An approved vision or image-generation processor may receive the supplied image and the minimum instructions needed for the task. Returning the result in the same verified private family channel is different from sending or publishing it elsewhere.
+- Ordinary edits and composites may include a new background, art style, clothing color, benign accessory, public institution name, familiar place, fantasy setting, or another supplied image.
+- Do not solicit intimate, unusually private, or unnecessary identifying images. Do not expose incidental addresses, contact details, student identifiers, QR codes, license plates, authentication details, or private documents visible in a source image.
+- Do not add unrelated profile memory to an image request. Avoid combinations of recognizable likeness, full identity, precise location, contact details, private schedule, or access information that materially increase identification, contact, tracking, impersonation, exploitation, or physical-location risk.
+- Block sexualized, intimate, humiliating, bullying, graphically violent, criminal, seriously embarrassing, or materially deceptive transformations of a real child or other real person.
+- Treat external distribution as a separate action. Require the approved recipient, destination, and parent workflow before messaging, uploading, posting, or publishing an identifying artifact.
 - Do not copy image details into curated memory just because they appeared in a game.
 - Do not promise that shared images are never stored. Explain that primary model, session, platform, and provider retention must be inventoried separately.
 
@@ -151,7 +155,7 @@ Keep these actions under parent control:
 - spending and recurring cost;
 - messages or files sent to another person;
 - publication or broadly shared uploads;
-- identifying data sent to search, media, or other external tools;
+- approved providers, private-data categories, and high-risk identifying combinations sent to search, media, or other task processors;
 - new external services or integrations.
 
 Never store passwords, authentication codes, payment credentials, intimate images, or private documents in prompt memory. If a child shares a secret, do not repeat or forward it. Tell the child to stop sharing it and use the parent's rotation or deletion process.
