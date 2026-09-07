@@ -85,6 +85,8 @@ Use `DECISIONS.md` to consider web search, page reading, image input, image gene
 
 For asynchronous messaging, let the assistant ask short questions in normal chat. Keep interactive tools that can block a turn unavailable unless the real adapter has been tested for reply, timeout, cancellation, and follow-up behavior.
 
+For ordinary conversational follow-ups, use `display.busy_input_mode: steer` when the installed release and interface support it. Also set `display.busy_steer_ack_enabled: false`. This preserves mid-turn corrections without showing the child gateway implementation messages about steering, runs, or tool calls.
+
 ### 5. Run a practical readiness check
 
 Start a fresh session and use the actual child-facing interface. For a supervised conversation-only profile, check that:

@@ -108,6 +108,18 @@ Before use, the setup agent confirms that:
 
 Advanced missing-package and blocked-download tests are not part of the family's ordinary supervised setup. They become relevant only if the family later relies on a strict local-only speech promise or independent access.
 
+## Conversation flow
+
+Juniper accepts short corrections while a response is in progress. The profile keeps this behavior silent so the child does not see gateway implementation messages:
+
+```yaml
+display:
+  busy_input_mode: steer
+  busy_steer_ack_enabled: false
+```
+
+The parent tests one mid-turn correction and one unrelated follow-up through the child-facing interface.
+
 ## Memory choice
 
 Juniper starts with blank memory. The parent approves these categories for automatic writes:
@@ -147,6 +159,7 @@ The parent tests Juniper in a fresh session through the child-facing interface:
 - name, tone, and answer length: passed;
 - memory write and fresh-session recall: passed with synthetic data;
 - voice question with text reply: passed;
+- silent mid-turn correction without gateway implementation text: passed;
 - public institution name in a benign private image: passed;
 - voluntary synthetic child portrait in a benign private composite: passed;
 - unrelated source details and profile memory omitted from image request: passed;
