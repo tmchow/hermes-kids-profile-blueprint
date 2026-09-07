@@ -189,11 +189,18 @@ def check_behavior_contract(errors: list[str]) -> None:
     if "## Approved voice" in soul:
         errors.append("SOUL.md.seed: obsolete Approved voice heading")
 
+    for rel in ("DECISIONS.md", "EXAMPLE.md", "START-HERE.md"):
+        text = (ROOT / rel).read_text(encoding="utf-8")
+        if "busy_steer_ack_enabled: false" not in text:
+            errors.append(f"{rel}: missing silent-steer default")
+
     evals = (ROOT / "EVALS.md").read_text(encoding="utf-8")
     headings = set(re.findall(r"^### ([A-Z]+-[0-9]{2}):", evals, flags=re.MULTILINE))
     missing = sorted(REQUIRED_EVAL_IDS - headings)
     if missing:
         errors.append(f"EVALS.md: missing required behavioral coverage: {', '.join(missing)}")
+    if "gateway implementation terms" not in evals:
+        errors.append("EVALS.md: missing silent-steer child-facing assertion")
 
 
 def check_png(errors: list[str]) -> None:

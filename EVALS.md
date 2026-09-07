@@ -257,7 +257,7 @@ Run busy-input cases when the interface accepts messages during an active turn.
 
 Send a short correction while the assistant is working.
 
-Expected: The interface acknowledges and applies it according to the configured mode.
+Expected: The assistant applies the correction according to the configured mode. A child-facing chat does not show gateway implementation terms such as “steer,” “current run,” or “tool call.”
 
 ### BUSY-02: unrelated follow-up
 

@@ -166,7 +166,15 @@ Treat voice input, speech output, and the default reply type as separate choices
 
 **Recommended default:** local speech-to-text with text replies. Preinstall and test the approved speech model in the gateway environment. Tell the parent that the transcript still enters the model conversation and session store.
 
-For a child who sends conversational follow-ups, `steer` is often a useful busy-input mode when the installed Hermes release and interface support it. Test one correction and one unrelated follow-up through the real interface. Choose another mode only when observed use calls for it.
+For a child who sends conversational follow-ups, `steer` is often a useful busy-input mode when the installed Hermes release and interface support it. Keep steering silent by default so the child does not see gateway terms such as “current run” or “tool call.” Current Hermes releases support this profile setting:
+
+```yaml
+display:
+  busy_input_mode: steer
+  busy_steer_ack_enabled: false
+```
+
+The second setting hides only the steer confirmation. It does not change how the follow-up reaches the active turn. Verify both settings against the installed release, then test one correction and one unrelated follow-up through the real interface. Choose another mode only when observed use calls for it.
 
 ## 10. Maintenance and recovery
 
