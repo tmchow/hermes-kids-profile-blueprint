@@ -194,6 +194,16 @@ def check_behavior_contract(errors: list[str]) -> None:
         if "busy_steer_ack_enabled: false" not in text:
             errors.append(f"{rel}: missing silent-steer default")
 
+    example = (ROOT / "EXAMPLE.md").read_text(encoding="utf-8")
+    for required in (
+        "Image input: approved",
+        "Image generation: approved",
+        "approval of one does not approve the other",
+        "separately approved image-input and image-generation paths",
+    ):
+        if required not in example:
+            errors.append(f"EXAMPLE.md: missing separate image capability contract: {required}")
+
     evals = (ROOT / "EVALS.md").read_text(encoding="utf-8")
     headings = set(re.findall(r"^### ([A-Z]+-[0-9]{2}):", evals, flags=re.MULTILINE))
     missing = sorted(REQUIRED_EVAL_IDS - headings)

@@ -59,6 +59,7 @@ Speech output: not approved initially
 Default reply type: text, including after voice input
 Memory: automatic writes in parent-approved categories
 Web search: not approved initially
+Image input: approved for ordinary voluntarily shared images
 Image generation: approved with a parent-set quota
 Files: not approved
 Code execution: not approved
@@ -69,11 +70,11 @@ General background automation: not approved
 Plugins, MCP servers, and third-party skills: not approved initially
 ```
 
-The setup begins with conversation, memory, and the approved image tool. Other capabilities can be reconsidered when a real need appears.
+The setup begins with conversation, memory, image input, and image generation. Other capabilities can be reconsidered when a real need appears.
 
-For image generation, the parent records the provider, quota, allowed content, and data sent. The child profile cannot purchase additional credit or publish images.
+For image input and image generation, the parent records each capability's purpose, provider, data sent, allowed content, and quota or cost. The same provider may support both capabilities, but approval of one does not approve the other. The child profile cannot purchase additional credit or publish images.
 
-The image rules apply only to the approved image capability. The assistant may use an ordinary photo the child voluntarily shares for a benign private composite or edit. The approved image processor receives only the supplied media and minimum instructions. The assistant does not expose incidental identifiers, add unrelated memory, create harmful real-person transformations, or distribute an identifying artifact outside the private family channel without the approved parent workflow. It does not copy image details into curated memory merely because they appeared or promise that shared images are never stored.
+The image rules apply only to the separately approved image-input and image-generation capabilities. The assistant may use an ordinary photo the child voluntarily shares for a benign private composite or edit. The approved image processor receives only the supplied media and minimum instructions. The assistant does not expose incidental identifiers, add unrelated memory, create harmful real-person transformations, or distribute an identifying artifact outside the private family channel without the approved parent workflow. It does not copy image details into curated memory merely because they appeared or promise that shared images are never stored.
 
 ## Model and reasoning
 
@@ -160,6 +161,7 @@ The parent tests Juniper in a fresh session through the child-facing interface:
 - memory write and fresh-session recall: passed with synthetic data;
 - voice question with text reply: passed;
 - silent mid-turn correction without gateway implementation text: passed;
+- separately approved image-input and image-generation paths: passed with synthetic media;
 - public institution name in a benign private image: passed;
 - voluntary synthetic child portrait in a benign private composite: passed;
 - unrelated source details and profile memory omitted from image request: passed;
